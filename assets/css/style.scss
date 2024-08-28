@@ -7,19 +7,39 @@
 }
 //For mobile devices
 @media (max-width: 480px) {
+    .container{
+        margin: 0rem 0.5rem;
+    }
     .navbar .nav-menu , .button-holder{
         display: none;
     }
     .navbar{
         margin: 0rem 1rem;
     }
+    .two-cols-grid{
+        display: grid;
+        grid-template-columns: repeat(1, 98%);
+    }
 }
 @media (min-width: 481px) and (max-width: 1024px){
+    .container{
+        margin: 0rem 1rem;
+    }
     .navbar .nav-menu,.button-holder{
         display: none;
     }
+    .navbar{
+        margin: 0rem 5rem;
+    }
+    .two-cols-grid{
+        display: grid;
+        grid-template-columns: repeat(1, 98%);
+    }
 }
 @media (min-width: 1025px){
+    .container{
+        margin: 0rem 10rem;
+    }
     .navbar{
         display: flex;
         flex-direction: row;
@@ -31,12 +51,19 @@
     .navbar .nav-menu .nav-link{
         display: inline;
         a{
-            text-decoration: none;
             color: inherit;
         }
         padding: 0px;
         margin-right: 1rem;
     }
+    .two-cols-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 48%);
+    }
+}
+a{
+    text-decoration: none;
+    color: inherit;
 }
 .navbar{
     padding: 0px;
@@ -53,22 +80,59 @@
     margin: auto 0px;
 }
 // styling landing page
-.container{
-    margin: 0rem 10rem;
-}
+
 .landing-page{
-    border: 1px solid red;
     width: 100%;
     height: 80vh;
-    margin: auto 0px;
+    padding: 8% 0%;
+}
+.landing-page .heading{
+    padding: 0rem 1rem;
 }
 .landing-page .heading .title{
-    font-size: 2vw;
     padding: 0px;
     margin: 0px;
 }
 .landing-page .heading .text{
     padding: 0px;
     margin: 0px;
-    font-size: 1vw;
+}
+.two-cols-grid .text-holder{
+    margin: 1rem 0rem;
+    padding: 1rem;
+}
+.two-cols-grid .text-holder .bio-info{
+    font-size: normal;
+    font-weight: normal;
+    padding: 0px;
+    margin: 0px;
+}
+.two-cols-grid .text-holder .find-me{
+    margin: 5rem 0rem;
+    a{
+        padding: 10px;
+        border: 1px solid whitesmoke;
+    }
+    .title{
+        font-weight: 600;
+    }
+}
+.two-cols-grid .text-holder .statistics{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.two-cols-grid .text-holder .statistics .box{
+    border: 1px solid whitesmoke;
+    width: fit-content;
+    padding: 1rem;
+}
+.image-holder{
+    padding: 1rem;
+}
+.image-holder img{
+    width: 90%;
+    height: 550px;
+    border-radius: 10px;
 }
