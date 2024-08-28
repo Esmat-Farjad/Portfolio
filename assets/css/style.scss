@@ -52,3 +52,23 @@
     vertical-align: middle;
     margin: auto 0px;
 }
+// styling landing page
+.container{
+    margin: 0rem 10rem;
+}
+.landing-page{
+    border: 1px solid red;
+    width: 100%;
+    height: 80vh;
+    margin: auto 0px;
+}
+.landing-page .heading .title{
+    font-size: 2vw;
+    padding: 0px;
+    margin: 0px;
+}
+.landing-page .heading .text{
+    padding: 0px;
+    margin: 0px;
+    font-size: 1vw;
+}
