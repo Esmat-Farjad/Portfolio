@@ -110,7 +110,7 @@ a {
 }
 
 .bio-content .find-me .title {
-  background: linear-gradient(90deg, #e84393, #f39c12, #000, white);
+  background: linear-gradient(90deg, #e84393, #f39c12);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
@@ -171,9 +171,8 @@ hr {
 
 .heading .pre-heading {
   font-weight: bold;
-  padding: 20px;
   margin: 0px;
-  background: linear-gradient(90deg, #e84393, #f39c12, #000, white);
+  background: linear-gradient(90deg, #e84393, #f39c12);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -198,7 +197,7 @@ hr {
 }
 
 .card .icon-design {
-  background: linear-gradient(90deg, #e84393, #f39c12, #000, white);
+  background: linear-gradient(90deg, #e84393, #f39c12);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 20px;
@@ -207,4 +206,10 @@ hr {
 .card .title {
   font-size: 24px;
   font-weight: 500;
+}
+
+.resume-page {
+  display: grid;
+  text-align: center;
+  place-items: center;
 }/*# sourceMappingURL=style.css.map */
