@@ -5,6 +5,11 @@
   font-style: normal;
 }
 
+body {
+  background-color: #1A1A1A;
+  color: white;
+}
+
 @media (max-width: 480px) {
   .container {
     margin: 0rem 0.5rem;
@@ -119,8 +124,8 @@ a {
   margin: 5rem 0rem;
 }
 .two-cols-grid .text-holder .find-me a {
-  padding: 10px;
-  border: 1px solid whitesmoke;
+  padding: 10px 15px;
+  box-shadow: 0 0 16px #060606;
 }
 .two-cols-grid .text-holder .find-me .title {
   font-weight: 600;
@@ -134,7 +139,8 @@ a {
 }
 
 .two-cols-grid .text-holder .statistics .box {
-  border: 1px solid whitesmoke;
+  box-shadow: 0 0 16px #060606;
+  border-radius: 5px;
   width: -moz-fit-content;
   width: fit-content;
   padding: 1rem;
@@ -148,4 +154,5 @@ a {
   width: 90%;
   height: 550px;
   border-radius: 10px;
+  box-shadow: 0 0 16px black;
 }/*# sourceMappingURL=style.css.map */
