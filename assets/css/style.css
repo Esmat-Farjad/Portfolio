@@ -209,7 +209,48 @@ hr {
 }
 
 .resume-page {
-  display: grid;
   text-align: center;
+  margin-top: 5rem;
+}
+
+.project-grid {
+  display: grid;
+  gap: 1rem;
   place-items: center;
+  margin: 4rem 0rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+}
+
+.project-holder {
+  background-image: url("../../assets/images/medium.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 24rem;
+  height: 15rem;
+  border-radius: 5px;
+  filter: brightness(50%);
+}
+
+.projects {
+  position: relative;
+}
+
+.projects .project-link {
+  position: absolute;
+  top: 45%;
+  left: 30%;
+  right: 30%;
+}
+
+.projects .project-link a {
+  padding: 7px 10px;
+  border-radius: 16px;
+  transition: background-image 0.5s ease;
+  background-color: rgb(247, 17, 112);
+  color: white;
+}
+
+.projects .project-link a:hover {
+  background-color: rgb(150, 0, 63);
 }/*# sourceMappingURL=style.css.map */
