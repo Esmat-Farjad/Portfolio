@@ -115,7 +115,7 @@ a{
     margin: 5rem 0rem;
     a{
         padding: 10px 15px;
-        box-shadow: 0 0 16px $sable-dark;
+        background-color: black;
     }
     .title{
         font-weight: 600;
@@ -128,8 +128,6 @@ a{
     gap: 10px;
 }
 .two-cols-grid .text-holder .statistics .box{
-    box-shadow: 0 0 16px $sable-dark;
-    border-radius: 5px;
     width: fit-content;
     padding: 1rem;
 }
@@ -141,4 +139,19 @@ a{
     height: 550px;
     border-radius: 10px;
     box-shadow: 0 0 16px black;
+}
+hr{
+    border: 1px solid black;
+}
+// heading text styling
+@mixin gradient-text {
+    background: linear-gradient(90deg,#e84393, #f39c12,#000,#ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+.heading .pre-heading{
+    font-weight: bold;
+    padding: 0px;
+    margin: 0px;
+    @include gradient-text();
 }
