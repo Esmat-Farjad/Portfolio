@@ -234,3 +234,17 @@ hr{
 .projects .project-link a:hover{
     background-color: rgb(150, 0, 63);
 }
+.btn-xl{
+    background-color: black;
+    color: white;
+    font-weight: 600px;
+    padding: 1rem 1.5rem;
+    border: none;
+    font-size: 18px;
+    border-radius: 8px;
+    text-transform: capitalize;
+    transition: all 2s ease;
+}
+.btn-xl:hover i{
+    padding-left: 8px;
+}
