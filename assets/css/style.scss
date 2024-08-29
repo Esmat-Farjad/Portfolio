@@ -83,6 +83,10 @@ a{
     margin: auto 0px;
 }
 // styling landing page
+.landing-page{
+    margin-top: 9rem;
+    margin-bottom: 2rem;
+}
 .landing-page .heading{
     padding: 0rem 1rem;
 }
@@ -140,12 +144,13 @@ a{
 
 .grid-content .image-content{
     width: 100%;
-    height: auto;
+    height: 100%;
     margin: auto;
     overflow: hidden;
 }
 .grid-content .image-content img{
-    width: 100%;
+    width: 60%;
+    height: 500px;
     object-fit: cover;
     border-radius: 5px;
 }
@@ -170,4 +175,19 @@ hr{
 }
 .service-page{
     overflow: hidden;
+    margin: 2rem 0rem;
+}
+.card{
+    background-color: $matte-black;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    margin: 1rem 0rem;
+}
+.card .icon-design{
+    @include gradient-text();
+    font-size: 20px;
+}
+.card .title{
+    font-size: 24px;
+    font-weight: 500;
 }
