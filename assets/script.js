@@ -3,7 +3,6 @@
     autoplay: {
       delay: 5000,
     },
- 
     // Optional parameters
     direction: 'horizontal',
     loop: true,

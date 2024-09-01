@@ -359,4 +359,16 @@ hr{
 }
 .card-content .user-text p{
     font-style: italic;
+    padding: 0rem 2rem;
+}
+.cart{
+    background-color: rgba(0,0,0, 0.05);
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0,0,0, 0.05);
+    width: 20rem;
+}
+.cart .heading .title{
+    font-size: 25px;
 }
