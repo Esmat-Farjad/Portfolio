@@ -210,7 +210,7 @@ hr {
 
 .resume-page {
   text-align: center;
-  margin-top: 5rem;
+  margin: 5rem 0rem;
 }
 
 .project-grid {
@@ -264,9 +264,125 @@ hr {
   font-size: 18px;
   border-radius: 8px;
   text-transform: capitalize;
-  transition: all 2s ease;
 }
 
 .btn-xl:hover i {
   padding-left: 8px;
+  transition: all 0.5s ease;
+}
+
+.flat-card {
+  text-align: start;
+  position: relative;
+}
+
+.flat-card .date {
+  padding: 0px;
+  margin: 0px;
+}
+
+.flat-card .designation {
+  padding: 0px;
+  margin: 3px 0px;
+}
+
+.flat-card .title {
+  padding: 0px;
+  margin: 5px 0px;
+  font-weight: 900;
+  font-size: 1.6em;
+}
+
+.education .education-content {
+  background: linear-gradient(90deg, #e84393, #f39c12);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 10px;
+  text-align: start;
+  border-bottom: 1px solid black;
+  margin-top: 4rem;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+
+.flat-card .badge {
+  background-color: black;
+  padding: 8px;
+  font-size: 12px;
+  border-radius: 5rem;
+  position: absolute;
+  top: -20%;
+  left: -2%;
+  margin: 2px;
+}
+
+.testimonial {
+  margin: 5rem 0rem;
+}
+
+.current {
+  color: green;
+  text-transform: capitalize;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #28282B;
+  background-color: #28282B;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+}
+
+.two-cols-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(35rem, 100%), 1fr));
+}
+
+.two-cols-grid .swiper-content {
+  margin: 0px;
+  padding: 0px;
+}
+
+.testimonial-card {
+  border: 1px solid red;
+  padding: 1rem;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.flex-container .image {
+  flex-shrink: 0;
+  flex-basis: 100px;
+}
+
+.flex-container .details {
+  flex-basis: 100px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 8px 0px;
+  margin: 0px;
+}
+
+.flex-container .image img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.flex-container .details .name {
+  margin: 0px;
+  padding: 0px;
+}
+
+.flex-container .details .designation {
+  padding: 0px;
+  margin: 2px 0px;
+}
+
+.flex-container .details .rate {
+  color: orange;
 }/*# sourceMappingURL=style.css.map */
