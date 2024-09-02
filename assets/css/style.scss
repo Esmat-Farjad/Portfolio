@@ -345,10 +345,6 @@ hr{
 .cart .heading .title{
     font-size: 25px;
 }
-.contact-form{
-    background-color: rgba(0,0,0, 0.1);
-
-}
 .add-card{
     background-color: $matte-black;
     border: 1px solid $matte-black;
@@ -361,24 +357,69 @@ hr{
 }
 .add-card .body h4{
     padding: 0px;
-    margin: 0px;
-    font-weight: lighter;
-    
+    margin-top: 0px;
+    font-size: 1em;
+    font-weight: 400;
+    text-align: center;
 }
-.contact-form{
-    margin: 5rem auto;
-    padding: 2rem;
+
+
+.auto-grid .message-holder{
+    grid-column: 1 / span 2;
+    margin-left: 1rem;
+    margin-top: 0px;
+}
+.form-input{
+    display: block;
+    width: 100%;
+    height: 35px;
+    background-color: black;
+    color: white;
+    border: 1px solid $matte-black;
+    border-radius: 8px;
+    transition: border 0.3s ease;
+    margin: auto;
+    padding: 0.5rem;
 
 }
-.contact-form form{
-    width: 100%;
-    height: auto;
-    border: 1px solid red;
+.form-input:focus,textarea:focus{
+    outline: 2px solid rgb(173, 6, 109);
 }
-.contact-form form .form-flex{
+
+textarea{
+    display: block;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: 1px solid $matte-black;
+    border-radius: 8px;
+    transition: border 0.3s ease;
+    margin: auto;
+    padding:0.5rem;
+
+}
+button[type='submit']{
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: none;
+    margin: 1rem auto;
+    background-color: black;
+    color: white;
+}
+.contact-page{
+    margin: 4rem 0rem;
+    .heading{
+        text-align: center;
+        margin: 3rem 0rem;
+    }
+}
+.flex-form{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    justify-content: center;
-    align-items: center;
+    padding: 0rem 5rem;
+}
+.flex-form > *{
+    flex-grow: 1;
+    flex-shrink: 1;
 }
