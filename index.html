@@ -457,24 +457,38 @@
                         </div>
                     </div>
                 </div>
-                <hr>
                 <form action="#" class="contact-form">
                     <div class="flex-form">
-                  
-                            <input type="text" class="form-input" placeholder="Enter your full name">
-                            <input type="email" class="form-input" placeholder="Enter your email">
-                     
-                            <input type="number" class="form-input" placeholder="Enter your phone number">
-                            <input type="text" class="form-input" placeholder="Enter the subject">
-                       
-                        
-                            <textarea name="message" cols="30" rows="15" id="message" placeholder="Type your message"></textarea>
-                            <button type="submit">Send Message&nbsp;&nbsp; <i class="fa-regular fa-paper-plane fa-xl"></i></button>
-                       
+                        <input type="text" class="form-input" placeholder="Enter your full name">
+                        <input type="email" class="form-input" placeholder="Enter your email">
+                        <input type="number" class="form-input" placeholder="Enter your phone number">
+                        <input type="text" class="form-input" placeholder="Enter the subject">
+                        <textarea name="message" cols="30" rows="15" id="message" placeholder="Type your message"></textarea>
+                        <button type="submit">Send Message&nbsp;&nbsp; <i class="fa-regular fa-paper-plane fa-xl"></i></button>
                     </div>
                 </form>
-                <hr>
-               
+            </div>
+         </div>
+         <hr>
+         <div class="footer">
+            <div class="heading">
+                <h1 class="pre-heading">
+                    My Portfolio
+                </h1>
+            </div>
+            <div class="media-chanels">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div style="text-align: center;">
+                <p>© <span id="year"></span> <span class="text-gradient">Portfolio</span> All rights reserved.</p>
+            <script>
+                document.getElementById('year').textContent = new Date().getFullYear();
+            </script>
             </div>
          </div>
     </div>

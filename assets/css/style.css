@@ -470,4 +470,33 @@ button[type=submit] {
 .flex-form > * {
   flex-grow: 1;
   flex-shrink: 1;
+}
+
+.footer {
+  margin-bottom: 5rem;
+}
+
+.footer .heading {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+
+.footer .media-chanels {
+  text-align: center;
+}
+
+.footer .media-chanels a {
+  padding: 0.6rem 1rem;
+  background-color: black;
+  font-size: 28px;
+  margin: 0rem 0.1rem;
+  border-radius: 8px;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #e84393, #f39c12);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */

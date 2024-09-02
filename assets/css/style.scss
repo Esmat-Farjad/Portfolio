@@ -423,3 +423,27 @@ button[type='submit']{
     flex-grow: 1;
     flex-shrink: 1;
 }
+// end
+.footer{
+    margin-bottom: 5rem;
+}
+.footer .heading{
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
+.footer .media-chanels{
+    text-align: center;
+}
+.footer .media-chanels a{
+    padding: 0.6rem 1rem;
+    background-color: black;
+    font-size: 28px;
+    margin: 0rem 0.1rem;
+    border-radius: 8px;
+    
+}
+.text-gradient{
+    @include gradient-text();
+    font-weight: bold;
+}
