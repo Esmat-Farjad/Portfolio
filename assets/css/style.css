@@ -10,6 +10,14 @@ body {
   color: white;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  position: relative;
+}
+
 @media (max-width: 480px) {
   .container {
     margin: 0rem 0.5rem;
@@ -499,4 +507,15 @@ button[type=submit] {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
+}
+
+.navigaiton {
+  position: fixed;
+  top: 90%;
+  right: 5%;
+  font-size: 36px;
+  color: #fb1378;
+}
+.navigaiton a i {
+  filter: drop-shadow(0 0 16px black);
 }/*# sourceMappingURL=style.css.map */

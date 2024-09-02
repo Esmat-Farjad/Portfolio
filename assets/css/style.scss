@@ -14,6 +14,12 @@ body{
     background-color: $dark;
     color: white;
 }
+html {
+    scroll-behavior: smooth;
+}
+.container{
+    position: relative;
+}
 
 //For mobile devices
 @media (max-width: 480px) {
@@ -446,4 +452,14 @@ button[type='submit']{
 .text-gradient{
     @include gradient-text();
     font-weight: bold;
+}
+.navigaiton{
+    position: fixed;
+    top: 90%;
+    right: 5%;
+    font-size: 36px;
+    color: #fb1378;
+    a i{
+        filter: drop-shadow(0 0 16px black);
+    }
 }
