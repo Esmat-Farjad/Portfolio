@@ -248,24 +248,7 @@ hr{
     padding-left: 8px;
     transition: all 0.5s ease;
 }
-.flat-card{
-    text-align: start;
-    position: relative;
-}
-.flat-card .date{
-    padding: 0px;
-    margin: 0px;
-}
-.flat-card .designation{
-    padding: 0px;
-    margin: 3px 0px;
-}
-.flat-card .title{
-    padding: 0px;
-    margin: 5px 0px;
-    font-weight: 900;
-    font-size: 1.6em;
-}
+
 .education .education-content{
     @include gradient-text();
     padding: 10px;
@@ -276,16 +259,6 @@ hr{
     text-transform: uppercase;
 }
 
-.flat-card .badge{
-    background-color: black;
-    padding: 8px;
-    font-size: 12px;
-    border-radius: 5rem;
-    position: absolute;
-    top: -20%;
-    left: -2%;
-    margin: 2px;
-}
 .testimonial{
     margin: 5rem 0rem;
 }
@@ -371,4 +344,24 @@ hr{
 }
 .cart .heading .title{
     font-size: 25px;
+}
+.contact-form{
+    background-color: rgba(0,0,0, 0.1);
+
+}
+.add-card{
+    background-color: $matte-black;
+    border: 1px solid $matte-black;
+    padding: 1rem 2rem;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.add-card .heading .icon{
+    @include gradient-text();
+    padding: 4px 0px;
+}
+.add-card .body h4{
+    padding: 0px;
+    margin: 0px;
+    font-weight: lighter;
+    
 }

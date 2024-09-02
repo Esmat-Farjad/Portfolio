@@ -271,28 +271,6 @@ hr {
   transition: all 0.5s ease;
 }
 
-.flat-card {
-  text-align: start;
-  position: relative;
-}
-
-.flat-card .date {
-  padding: 0px;
-  margin: 0px;
-}
-
-.flat-card .designation {
-  padding: 0px;
-  margin: 3px 0px;
-}
-
-.flat-card .title {
-  padding: 0px;
-  margin: 5px 0px;
-  font-weight: 900;
-  font-size: 1.6em;
-}
-
 .education .education-content {
   background: linear-gradient(90deg, #e84393, #f39c12);
   -webkit-background-clip: text;
@@ -303,17 +281,6 @@ hr {
   margin-top: 4rem;
   font-weight: lighter;
   text-transform: uppercase;
-}
-
-.flat-card .badge {
-  background-color: black;
-  padding: 8px;
-  font-size: 12px;
-  border-radius: 5rem;
-  position: absolute;
-  top: -20%;
-  left: -2%;
-  margin: 2px;
 }
 
 .testimonial {
@@ -417,4 +384,28 @@ hr {
 
 .cart .heading .title {
   font-size: 25px;
+}
+
+.contact-form {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.add-card {
+  background-color: #28282B;
+  border: 1px solid #28282B;
+  padding: 1rem 2rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.add-card .heading .icon {
+  background: linear-gradient(90deg, #e84393, #f39c12);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 4px 0px;
+}
+
+.add-card .body h4 {
+  padding: 0px;
+  margin: 0px;
+  font-weight: lighter;
 }/*# sourceMappingURL=style.css.map */
