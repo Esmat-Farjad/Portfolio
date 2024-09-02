@@ -408,4 +408,23 @@ hr {
   padding: 0px;
   margin: 0px;
   font-weight: lighter;
+}
+
+.contact-form {
+  margin: 5rem auto;
+  padding: 2rem;
+}
+
+.contact-form form {
+  width: 100%;
+  height: auto;
+  border: 1px solid red;
+}
+
+.contact-form form .form-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=style.css.map */
