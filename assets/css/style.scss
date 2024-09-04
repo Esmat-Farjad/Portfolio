@@ -183,8 +183,10 @@ hr{
 .heading .title{
     padding: 0px;
     margin: 0px;
-    font-size: 4em;
-    font-weight: bold;
+    font-size: 3em;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+
 }
 .service-page{
     overflow: hidden;
@@ -482,7 +484,7 @@ button[type='submit']{
     top: 90%;
     right: 5%;
     font-size: 36px;
-    color: #3498DB;
+    color: #F1C40F;
     a i{
         filter: drop-shadow(0 0 16px black);
     }
