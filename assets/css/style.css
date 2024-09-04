@@ -430,49 +430,47 @@ hr {
   font-size: 25px;
 }
 
-.add-card {
-  background-color: #28282B;
-  border: 1px solid #28282B;
-  padding: 1rem 2rem;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+.information .list-holder {
+  list-style-type: none;
+  display: inline;
 }
 
-.add-card .heading .icon {
+.information .list-holder .list-item {
+  padding: 1rem;
+}
+
+.list-holder .list-item .icon {
   background: linear-gradient(90deg, #e84393, #f39c12);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  padding: 4px 0px;
 }
 
-.add-card .body h4 {
-  padding: 0px;
-  margin-top: 0px;
-  font-size: 1em;
-  font-weight: 400;
-  text-align: center;
+.list-holder .list-item .title {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-.auto-grid .message-holder {
-  grid-column: 1/span 2;
-  margin-left: 1rem;
-  margin-top: 0px;
+.list-holder .list-item .sub-title {
+  padding-left: 2rem;
 }
 
 .form-input {
   display: block;
   width: 100%;
-  height: 35px;
+  height: 40px;
+  margin: 10px 0px;
   background-color: black;
   color: white;
   border: 1px solid #28282B;
   border-radius: 8px;
   transition: border 0.3s ease;
-  margin: auto;
-  padding: 0.5rem;
 }
 
 .form-input:focus, textarea:focus {
-  outline: 2px solid rgb(173, 6, 109);
+  outline: 2px solid rgb(252, 159, 21);
 }
 
 textarea {
@@ -484,12 +482,12 @@ textarea {
   border-radius: 8px;
   transition: border 0.3s ease;
   margin: auto;
-  padding: 0.5rem;
 }
 
 button[type=submit] {
   padding: 1rem 2rem;
   border-radius: 10px;
+  width: 100%;
   border: none;
   margin: 1rem auto;
   background-color: black;
@@ -504,16 +502,12 @@ button[type=submit] {
   margin: 3rem 0rem;
 }
 
-.flex-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 0rem 5rem;
+.form-holder {
+  overflow: hidden;
 }
 
-.flex-form > * {
-  flex-grow: 1;
-  flex-shrink: 1;
+.form-holder .contact-form {
+  margin: 1rem;
 }
 
 .footer {
