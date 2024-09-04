@@ -138,6 +138,11 @@ a {
   background-color: black;
 }
 
+.bio-content .find-me a:hover {
+  color: #e84393;
+  transition: color 0.3s ease-in-out;
+}
+
 .bio-content .statistics {
   margin: 5rem 0rem;
   display: flex;
@@ -531,6 +536,11 @@ button[type=submit] {
   font-size: 28px;
   margin: 0rem 0.1rem;
   border-radius: 8px;
+}
+
+.footer .media-chanels a:hover {
+  color: #e84393;
+  transition: color 0.3s ease;
 }
 
 .text-gradient {
