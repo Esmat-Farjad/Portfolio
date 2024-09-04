@@ -18,6 +18,10 @@ html {
   position: relative;
 }
 
+.space {
+  letter-spacing: 4px;
+}
+
 @media (max-width: 480px) {
   .container {
     margin: 0rem 0.5rem;
@@ -162,7 +166,7 @@ a {
 }
 
 .grid-content .image-content img {
-  width: 80%;
+  width: 100%;
   height: 600px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -232,14 +236,20 @@ hr {
 }
 
 .project-holder {
-  background-image: url("../../assets/images/medium.webp");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  overflow: hidden;
+  border: 1px solid #28282B;
   width: 24rem;
   height: 15rem;
   border-radius: 5px;
-  filter: brightness(50%) blur(2px);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+}
+
+.project-holder img {
+  filter: blur(2px) brightness(80%);
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .projects {
@@ -249,8 +259,8 @@ hr {
 .projects .project-details {
   position: absolute;
   top: 40%;
-  left: 30%;
-  right: 30%;
+  left: 20%;
+  right: 20%;
 }
 
 .projects .project-details .company {
