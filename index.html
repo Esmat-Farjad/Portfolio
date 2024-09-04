@@ -480,10 +480,11 @@
         </div>
         <hr>
         <div class="footer">
-            <div class="heading">
-                <h1 class="pre-heading">
-                    My Portfolio
-                </h1>
+            <div style="text-align: center;">
+                <p>Copyright © <span id="year"></span> <span class="text-gradient">Portfolio</span> All rights reserved.</p>
+                <script>
+                    document.getElementById('year').textContent = new Date().getFullYear();
+                </script>
             </div>
             <div class="media-chanels">
                 <a href="https://www.facebook.com/Esmatullah.Farjad"><i class="fa-brands fa-facebook-f"></i></a>
@@ -493,15 +494,15 @@
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#"><i class="fa-brands fa-youtube"></i></a>
             </div>
-            <div style="text-align: center;">
-                <p>© <span id="year"></span> <span class="text-gradient">Portfolio</span> All rights reserved.</p>
-                <script>
-                    document.getElementById('year').textContent = new Date().getFullYear();
-                </script>
+            <div class="heading">
+                <h5 class="pre-heading">
+                    My Portfolio
+                </h5>
             </div>
         </div>
+        
         <div class="navigaiton">
-            <a href="#main-page"><i class="fa-solid fa-circle-arrow-up"></i></a>
+            <a href="#main-page"><i class="fa-solid fa-circle-up fa-bounce"></i></a>
         </div>
     </div>
     <!-- Link SwiperJS JavaScript -->

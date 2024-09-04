@@ -451,22 +451,22 @@ button[type='submit']{
     margin: 1rem;
 }
 .footer{
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
 }
 .footer .heading{
     text-align: center;
-    margin-top: 5rem;
-    margin-bottom: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .footer .media-chanels{
     text-align: center;
 }
 .footer .media-chanels a{
-    padding: 0.6rem 1rem;
+    padding: 5px 10px;
+    border: 1px solid $licorice;
+    border-radius: 5px;
+    margin-right: 3px;
     background-color: black;
-    font-size: 28px;
-    margin: 0rem 0.1rem;
-    border-radius: 8px;
     
 }
 .footer  .media-chanels a:hover{
@@ -482,7 +482,7 @@ button[type='submit']{
     top: 90%;
     right: 5%;
     font-size: 36px;
-    color: #fb1378;
+    color: #3498DB;
     a i{
         filter: drop-shadow(0 0 16px black);
     }
