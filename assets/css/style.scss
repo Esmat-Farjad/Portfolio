@@ -215,11 +215,16 @@ hr{
 }
 .project-holder{
     overflow: hidden;
-    border: 1px solid $matte-black;
-    width: 24rem;
+    border: 1px solid #fcac61;
+    width: 23rem;
     height: 15rem;
     border-radius: 5px;
     box-shadow: 0 0 16px rgba(0,0,0, 0.5);
+}
+
+.projects:hover .project-holder{
+    border: 2px solid #e84393;
+    transition: border 0.5s ease;
 }
 .project-holder img{
     filter: blur(2px) brightness(80%);
@@ -303,7 +308,8 @@ hr{
     margin-top: 4rem;
 }
 .two-cols-grid .content{
-    padding: 5rem;
+   margin-top: 5rem;
+   margin-bottom: 2rem;
 }
 .two-cols-grid .content .title{
     text-transform: capitalize;
@@ -355,15 +361,15 @@ hr{
 }
 .card-content .user-text p{
     font-style: italic;
-    padding: 0rem 2rem;
+    padding: 0rem 1rem;
 }
 .cart{
-    background-color: rgba(0,0,0, 0.1);
+    background-color: $matte-black;
     width: fit-content;
     padding: 1rem;
     border-radius: 5px;
-    box-shadow: 0 10px 10px rgba(0,0,0, 0.1);
-
+    box-shadow: 0 10px 10px rgba(0,0,0, 0.05);
+    border: 1px solid $matte-black;
 }
 .cart .heading .title{
     font-size: 25px;
