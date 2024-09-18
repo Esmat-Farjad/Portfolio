@@ -12,7 +12,7 @@
   }
 body{
     background-color: $dark;
-    color: white;
+    
     margin: 0px;
     padding: 0px;
 }
@@ -25,14 +25,15 @@ html {
 .space{
     letter-spacing: 4px;
 }
+.not-active{
+    display: none;
+}
 //For mobile devices
 @media (max-width: 480px) {
     .container{
         margin: 0rem 0.5rem;
     }
-    .navbar .nav-menu , .button-holder{
-        display: none;
-    }
+    
     .navbar{
         margin: 0px;
         padding:0px;
@@ -50,6 +51,24 @@ html {
         top: 30%;
         right: 2%;
     }
+    .nav-menu{
+        position: absolute;
+        top: 5%;
+        left: 3%;
+        right: 3%;
+        border: 1px solid lightgray;
+        margin: 0px;
+        padding: 10px 0px;
+        li{
+            padding:8px 20px;
+            
+        }
+        background-color: white;
+        z-index: 100;
+        border-radius: 5px;
+        box-shadow: 0 0 16px lightgray;
+        transition: display 1s ease-in-out;
+    }
     
     
 }
@@ -57,9 +76,7 @@ html {
     .container{
         margin: 0rem 1rem;
     }
-    .navbar .nav-menu , .button-holder{
-        display: none;
-    }
+    
     .navbar{
         margin: 0px;
         padding:0px;
@@ -140,7 +157,7 @@ a{
     display: grid;
     gap: 1rem;
     grid-template-columns: 
-    repeat(auto-fit,minmax(min(22rem, 100%), 1fr));
+    repeat(auto-fit,minmax(min(20rem, 100%), 1fr));
 }
 .auto-grid .grid-content{
     padding: 1rem;
@@ -156,15 +173,12 @@ a{
 }
 .bio-content .find-me a{
     padding: 10px 15px;
-    border: 1px solid $licorice;
     border-radius: 5px;
     margin-right: 3px;
-    background-color: black;
+    color: white;
+    background-image: linear-gradient(90deg,#e84393, #f39c12);
 }
-.bio-content .find-me a:hover{
-    color: #e84393;
-    transition: color 0.3s ease-in-out;
-}
+
 .bio-content .statistics{
     margin: 5rem 0rem;
     display: flex;
@@ -225,7 +239,10 @@ hr{
     background-color: $matte-black;
     padding: 1rem 1.5rem;
     border-radius: 5px;
-    margin: 1rem 0rem;
+    margin: 0.5rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0,0,0, 0.05);
+    border: 1px solid $matte-black;
 }
 .card .icon-design{
     @include gradient-text();
@@ -254,32 +271,46 @@ hr{
     width: 23rem;
     height: 15rem;
     border-radius: 5px;
-    box-shadow: 0 0 16px rgba(0,0,0, 0.5);
+    box-shadow: 0 0 16px lightgray;
+    
 }
 
-.projects:hover .project-holder{
-    border: 2px solid #e84393;
-    transition: border 0.5s ease;
-}
 .project-holder img{
-    filter: blur(2px) brightness(80%);
     object-fit: cover;
     width: 100%;
     height: 100%;
+    
 }
 .projects{
     position: relative;
+    border-radius: 5px;
 }
 .projects .project-details{
     position: absolute;
-    top: 40%;
-    left: 20%;
-    right: 20%;
+    color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0, 0.7);
+    padding: 5rem;
+    border-radius: 5px;
+    animation: fadeUp 1s linear 1;
+}
+@keyframes fadeUp {
+    from{
+        filter: opacity(0);
+    }
+    to{
+        filter: opacity(1);
+    }
+    
 }
 .projects .project-details .company{
     padding: 0px;
     margin: 0px;
     text-transform: capitalize;
+    font-size: 20px;
 }
 .projects .project-details .title{
     text-transform: capitalize;
@@ -298,8 +329,9 @@ hr{
     
 }
 .btn-xl{
-    background-color: black;
-    color: white;
+    background-color: white;
+    box-shadow: 0 0 16px lightgray;
+    color: black;
     font-weight: 600px;
     padding: 1rem 1.5rem;
     border: none;
@@ -379,9 +411,11 @@ hr{
     margin: 0px;
 }
 .flex-container .image img{
-    width: 100%;
-    height: auto;
+    width: 70%;
+    height: 70px;
+    object-fit: cover;
     border-radius: 50%;
+    border: 2px solid rgb(59, 144, 255);
 }
 .flex-container .details .name{
     margin: 0px;
@@ -402,9 +436,11 @@ hr{
     background-color: $matte-black;
     width: fit-content;
     padding: 1rem;
+    margin: 0.5rem 1rem;
     border-radius: 5px;
     box-shadow: 0 10px 10px rgba(0,0,0, 0.05);
     border: 1px solid $matte-black;
+
 }
 .cart .heading .achieved{
     font-size: 20px;
@@ -438,11 +474,11 @@ hr{
     width: 100%;
     height: 40px;
     margin: 10px 0px;
-    background-color: black;
-    color: white;
-    border: 1px solid $matte-black;
     border-radius: 8px;
+    outline: none;
+    border: 1px solid orange;
     transition: border 0.3s ease;
+    padding-left: 5px;
     
 
 }
@@ -453,12 +489,12 @@ hr{
 textarea{
     display: block;
     width: 100%;
-    background-color: black;
-    color: white;
-    border: 1px solid $matte-black;
+    border: 1px solid orange;
     border-radius: 8px;
     transition: border 0.3s ease;
     margin: auto;
+    padding-top: 10px;
+    padding-left: 5px;
 
 }
 button[type='submit']{
@@ -466,8 +502,9 @@ button[type='submit']{
     border-radius: 10px;
     width: 100%;
     border: none;
+    font-weight: 600;
     margin: 1rem auto;
-    background-color: black;
+    background-image: linear-gradient(90deg,#e84393, #f39c12);
     color: white;
 }
 .contact-page{
@@ -496,10 +533,10 @@ button[type='submit']{
 }
 .footer .media-chanels a{
     padding: 5px 10px;
-    border: 1px solid $licorice;
     border-radius: 5px;
     margin-right: 3px;
-    background-color: black;
+    background-image: linear-gradient(90deg,#e84393, #f39c12);;
+    color: white;
     
 }
 .footer  .media-chanels a:hover{
@@ -514,9 +551,9 @@ button[type='submit']{
     position: fixed;
     top: 90%;
     right: 5%;
-    font-size: 36px;
-    color: #F1C40F;
+    font-size: 30px;
+    color: orange;
     a i{
-        filter: drop-shadow(0 0 16px black);
+        filter: drop-shadow(0 0 16px lightgray);
     }
 }
