@@ -210,10 +210,16 @@ a {
 }
 
 .statistics .box {
-  padding: 10px;
+  padding: 1rem;
   flex-basis: 10rem;
   flex-shrink: 1;
   flex-grow: 1;
+  border: 1px solid #fcac61;
+  border-radius: 5px;
+}
+
+.statistics .middle-box {
+  border: 2px solid #f39c12;
 }
 
 .statistics .box .title {
