@@ -609,8 +609,13 @@ button[type=submit] {
   top: 90%;
   right: 5%;
   font-size: 30px;
-  color: orange;
+  color: white;
 }
 .navigaiton a i {
-  filter: drop-shadow(0 0 16px lightgray);
+  filter: drop-shadow(0 0 32px rgb(114, 113, 110));
+  padding: 10px;
+  border: 1px solid rgb(255, 255, 255);
+  background-image: linear-gradient(90deg, #e84393, #f39c12);
+  border-radius: 50%;
+  z-index: 100;
 }/*# sourceMappingURL=style.css.map */

@@ -1,3 +1,10 @@
+window.addEventListener('load',function(){
+  const spinner = document.getElementById("spinner");
+  const content = this.document.getElementById("content");
+  spinner.style.display = 'none';
+  content.classList.remove("not-active");
+}); 
+ 
  const swiper = new Swiper('.swiper', {
   
     autoplay: {

@@ -19,309 +19,343 @@
 
 </head>
 <body>
-    <!-- Navbar -->
-    <div class="navbar">
-        <div class="logo-holder">
-            <img src="./assets/images/logo.svg" class="logo" alt="">
-            <div class="mobile-menu">
-                <i class="fa-solid fa-pause fa-rotate-90"></i>
-            </div>
-        </div>
-        
-        <ul class="nav-menu not-active" id="nav-menu">
-            <li class="nav-link"><a href="#projects">Portfolio</a></li>
-            <li class="nav-link"><a href="#service">Services</a></li>
-            <li class="nav-link"><a href="#contact-me">Contact Me</a></li>
-            <li class="nav-link"><a href="./assets/Doc/my_resume.pdf" download="my_resume.pdf">Download CV</a></li>
-        </ul>
+    <div class="spinner" id="spinner" style="display: flex;justify-content: center; align-items: center; flex-direction: column; width: 100%; height: 100vh;">
+        <img src="./assets/images/spinner.svg" width="300" height="300" alt="">
+        <div class=""><img src="./assets/images/loading.svg" width="100" height="100" alt=""></div>
         
     </div>
-    <!-- main page start -->
-    <div class="container">
-        <div class="landing-page" id="main-page">
-            <div class="heading">
-                <h1 class="title" >Esmatullah Hashimi</h1>
-                <p class="pre-heading space" id="position"></p>
-            </div>
-            <div class="auto-grid">
-                <div class="grid-content">
-                    <div class="bio-content">
-                        <p class="bio-info">
-                            Technology-driven Software Engineer with 2+ 
-                            years of experience in translating business 
-                            requirements and functional specification into code modules and software solutions. 
-                            Deep understanding of system integration testing (SIT) and user acceptance testing (UAT). 
-                            Engages in the software development lifecycle to support the development, configuration, 
-                            modification, and testing of integrated business and enterprise application solutions. 
-                            Drives the adoption of new technologies by researching innovative technology trends and developments.
-                        </p>
-                        <div class="find-me">
-                            <p class="title">FIND ME ON</p>
-                            <a href="https://www.facebook.com/Esmatullah.Farjad"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="https://x.com/Esmat_Farjad"><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href="https://www.linkedin.com/in/esmatullah-hashimi-5b56401ba"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="https://github.com/Esmat-Farjad"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                        <div class="statistics">
-                            <div class="box">
-                                <h1 class="title">2+</h1>
-                                <p class="text">Years of Experience</p>
-                            </div>
-                            <div class="box">
-                                <h1 class="title">20+</h1>
-                                <p class="text">Successful Projects</p>
-                            </div>
-                            <div class="box">
-                                <h1 class="title">5+</h1>
-                                <p class="text">Happy Clients</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-content">
-                    <div class="image-content">
-                        <img src="assets/images/20240918_160926.jpg" alt="">
-                    </div>
+    <div class="content not-active" id="content">
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="logo-holder">
+                <img src="./assets/images/logo.svg" class="logo" alt="">
+                <div class="mobile-menu">
+                    <i class="fa-solid fa-pause fa-rotate-90"></i>
                 </div>
             </div>
+            
+            <ul class="nav-menu not-active" id="nav-menu">
+                <li class="nav-link"><a href="#projects">Portfolio</a></li>
+                <li class="nav-link"><a href="#service">Services</a></li>
+                <li class="nav-link"><a href="#contact-me">Contact Me</a></li>
+                <li class="nav-link"><a href="./assets/Doc/my_resume.pdf" download="my_resume.pdf">Download CV</a></li>
+            </ul>
+            
         </div>
-        <hr>
-        <!-- services -->
-        <div class="service-page" id="service">
-            <div class="heading">
-                <p class="pre-heading">SERVICES PROVIDED</p>
-                <h1 class="title">What I Do</h1>
-            </div>
-            <div class="auto-grid">
-                <div class="card">
-                    <p class="icon-design"><i class="fa-solid fa-laptop-code fa-lg"></i></p>
-                    <h2 class="title">Website Design</h2>
-                    <p class="text">Crafting visually stunning and user-friendly websites tailored to your needs.</p>
+        <!-- main page start -->
+        <div class="container">
+            <div class="landing-page" id="main-page">
+                <div class="heading">
+                    <h1 class="title" >Esmatullah Hashimi</h1>
+                    <p class="pre-heading space" id="position"></p>
                 </div>
-                <div class="card">
-                    <p class="icon-design"><i class="fa-brands fa-app-store fa-lg"></i></p>
-                    <h2 class="title">App Development</h2>
-                    <p class="text">Building intuitive and powerful apps that elevate your digital experience.</p>
-                </div>
-                <div class="card">
-                    <p class="icon-design"><i class="fa-regular fa-credit-card fa-lg"></i></p>
-                    <h2 class="title">Business Strategy</h2>
-                    <p class="text">Empowering your growth with data-driven strategies and innovative solutions.</p>
-                </div>
-                <div class="card">
-                    <p class="icon-design"><i class="fa-brands fa-searchengin fa-lg"></i></p>
-                    <h2 class="title">SEO</h2>
-                    <p class="text">Boosting your online visibility with tailored SEO strategies that drive results.</p>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <!-- work page -->
-         <div class="resume-page" id="projects">
-            <div class="heading">
-                <p class="pre-heading">AWARD WINNING WORKS</p>
-                <h1 class="title">Recent Works</h1>
-            </div>
-            <div class="project-grid">
-                <div class="projects">
-                    <div class="project-holder">
-                        <img src="./assets/images/iMMAP.svg" alt="">
-                    </div>
-                    <div class="project-details">
-                        <p class="company"><b style="color: #a52824;">i</b>MMAP.Inc</p>
-                        <h4 class="title">Report Hub</h4>
-                        <p class="btn-holder">
-                            <a href="./view.html" class="btn-link">view</a>
-                            <a href="https://dev.reporthub.immap.org" class="btn-link">Goto</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="projects">
-                    <div class="project-holder">
-                        <img src="./assets/images/azamdeal.png" alt="">
-                    </div>
-                    <div class="project-details">
-                        <p class="company">Azam Deal</p>
-                        <h4 class="title">Online Shopping</h4>
-                        <p class="btn-holder">
-                            <a href="view.html" class="btn-link">view</a>
-                            <a href="https://azamdeal.com" class="btn-link">Goto</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="projects">
-                    <div class="project-holder">
-                        <img src="./assets/images/HTA.png" alt="">
-                    </div>
-                    <div class="project-details">
-                        <p class="company">HTA Tour guide</p>
-                        <h4 class="title">Heritage Trail Afghanistan</h4>
-                        <p class="btn-holder">
-                            <a href="view.html" class="btn-link">view</a>
-                            <a href="https://heritage-trail-afghanistan.netlify.app" class="btn-link">Goto</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="projects">
-                    <div class="project-holder">
-                        <img src="./assets/images/organic.png" alt="">
-                    </div>
-                    <div class="project-details">
-                        <p class="company">Organic FoodLand</p>
-                        <h4 class="title">Online Food Ordering</h4>
-                        <p class="btn-holder">
-                            <a href="view.html" class="btn-link">view</a>
-                            <a href="" class="btn-link">Goto</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-holder">
-                <button type="button" class="btn-xl">view all works &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-        </div>
-        <hr>
-        <!-- Resume page -->
-        <div class="resume-page">
-            <div class="heading">
-                <p class="pre-heading">YEARS OF EXPERIENCE</p>
-                <h1 class="title">My Resume</h1>
-            </div>
-            <div class="education">
-                <h1 class="education-content"><i class="fa-solid fa-graduation-cap"></i> &nbsp;Education</h1>
                 <div class="auto-grid">
-                    <div class="cart">
-                        <div class="heading">
-                            <p class="pre-heading">2017 - 2020</p>
-                            <h2 class="achieved">Bachelor Degree</h2>
-                            <small>Pune University(SPPU)</small>
-                        </div>
-                        <div class="body">
-                            <p>Completed my bachelor degree in the field of 
-                                BBA-CA in Savitribai Phule Pune Universit</p>
+                    <div class="grid-content">
+                        <div class="bio-content">
+                            <p class="bio-info">
+                                Technology-driven Software Engineer with 2+ 
+                                years of experience in translating business 
+                                requirements and functional specification into code modules and software solutions. 
+                                Deep understanding of system integration testing (SIT) and user acceptance testing (UAT). 
+                                Engages in the software development lifecycle to support the development, configuration, 
+                                modification, and testing of integrated business and enterprise application solutions. 
+                                Drives the adoption of new technologies by researching innovative technology trends and developments.
+                            </p>
+                            <div class="find-me">
+                                <p class="title">FIND ME ON</p>
+                                <a href="https://www.facebook.com/Esmatullah.Farjad"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://x.com/Esmat_Farjad"><i class="fa-brands fa-x-twitter"></i></a>
+                                <a href="https://www.linkedin.com/in/esmatullah-hashimi-5b56401ba"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="https://github.com/Esmat-Farjad"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                            <div class="statistics">
+                                <div class="box">
+                                    <h1 class="title">2+</h1>
+                                    <p class="text">Years of Experience</p>
+                                </div>
+                                <div class="box">
+                                    <h1 class="title">20+</h1>
+                                    <p class="text">Successful Projects</p>
+                                </div>
+                                <div class="box">
+                                    <h1 class="title">5+</h1>
+                                    <p class="text">Happy Clients</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- 2 -->
-                    <div class="cart">
-                        <div class="heading">
-                            <p class="pre-heading">MAY 2019 - DEC 2019</p>
-                            <h2 class="achieved">Web Development</h2>
-                            <small>Assasa Technology PR.Ltd </small>
-                        </div>
-                        <div class="body">
-                            <p>Completed web application development using trending 
-                                technologies.</p>
-                        </div>
-                    </div>
-                    <!-- 3 -->
-                    <div class="cart">
-                        <div class="heading">
-                            <p class="pre-heading">NOV 2018 - FEB 2019</p>
-                            <h2 class="achieved">CCNA Cetified</h2>
-                            <small>SevenMentor and Training PVT. LTD</small>
-                        </div>
-                        <div class="body">
-                            <p>Achieved Cisco Certified Network Associate (CCNA) 
-                                certification to advance IT knowledge and capabilities. </p>
-                        </div>
-                    </div>
-                   <!-- 4 -->
-                    <div class="cart">
-                        <div class="heading">
-                            <p class="pre-heading">2012 - 2015</p>
-                            <h2 class="achieved">HSE Diploma</h2>
-                            <small>Zukor Chahardeh High School</small>
-                        </div>
-                        <div class="body">
-                            <p>Completed High School (General diploma) from my hometown Chahardeh High School. </p>
+                    <div class="grid-content">
+                        <div class="image-content">
+                            <img src="assets/images/20240918_160926.jpg" alt="">
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Work Experience -->
-            <div class="education">
-                <h1 class="education-content"><i class="fa-solid fa-ranking-star"></i> &nbsp;Experience</h1>
+            <hr>
+            <!-- services -->
+            <div class="service-page" id="service">
+                <div class="heading">
+                    <p class="pre-heading">SERVICES PROVIDED</p>
+                    <h1 class="title">What I Do</h1>
+                </div>
                 <div class="auto-grid">
-                    <div class="cart">
-                        <div class="heading">
-                            <p class="pre-heading">MAR 2024 - current job</p>
-                            <h2 class="achieved">Full Stack Developer</h2>
-                            <small><span style="color:#a52824;font-weight: bold;">i</span>MMAP | Afghanistan-Office</small>
+                    <div class="card">
+                        <p class="icon-design"><i class="fa-solid fa-laptop-code fa-lg"></i></p>
+                        <h2 class="title">Website Design</h2>
+                        <p class="text">Crafting visually stunning and user-friendly websites tailored to your needs.</p>
+                    </div>
+                    <div class="card">
+                        <p class="icon-design"><i class="fa-brands fa-app-store fa-lg"></i></p>
+                        <h2 class="title">App Development</h2>
+                        <p class="text">Building intuitive and powerful apps that elevate your digital experience.</p>
+                    </div>
+                    <div class="card">
+                        <p class="icon-design"><i class="fa-regular fa-credit-card fa-lg"></i></p>
+                        <h2 class="title">Business Strategy</h2>
+                        <p class="text">Empowering your growth with data-driven strategies and innovative solutions.</p>
+                    </div>
+                    <div class="card">
+                        <p class="icon-design"><i class="fa-brands fa-searchengin fa-lg"></i></p>
+                        <h2 class="title">SEO</h2>
+                        <p class="text">Boosting your online visibility with tailored SEO strategies that drive results.</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- work page -->
+            <div class="resume-page" id="projects">
+                <div class="heading">
+                    <p class="pre-heading">AWARD WINNING WORKS</p>
+                    <h1 class="title">Recent Works</h1>
+                </div>
+                <div class="project-grid">
+                    <div class="projects">
+                        <div class="project-holder">
+                            <img src="./assets/images/iMMAP.svg" alt="">
                         </div>
-                        <div class="body">
-                            <p>Currently Working as Full Stack Developer with 
-                                <span style="color:#a52824;font-weight: bold;">i</span>MMAP</p>
+                        <div class="project-details">
+                            <p class="company"><b style="color: #a52824;">i</b>MMAP.Inc</p>
+                            <h4 class="title">Report Hub</h4>
+                            <p class="btn-holder">
+                                <a href="./view.html" class="btn-link">view</a>
+                                <a href="https://dev.reporthub.immap.org" class="btn-link">Goto</a>
+                            </p>
                         </div>
                     </div>
-                    <!-- 2 -->
-                    <div class="cart">
-                        <div class="heading">
-                            <p class="pre-heading">JUL 2023 - MAR 2024</p>
-                            <h2 class="achieved">Intern Full Stack Developer</h2>
-                            <small><span style="color:#a52824;font-weight: bold;">i</span>MMAP | Afghanistan-Office</small>
+                    <div class="projects">
+                        <div class="project-holder">
+                            <img src="./assets/images/azamdeal.png" alt="">
                         </div>
-                        <div class="body">
-                            <p>Completed training in developing enterprise-level 
-                                complex software utilizing robust technologies.</p>
-                        </div>
-                    </div>
-                    <!-- 3 -->
-                    <div class="cart">
-                        <div class="heading">
-                            <p class="pre-heading">MAY 2020 - DEC 2020</p>
-                            <h2 class="achieved">Angular Ui Developer</h2>
-                            <small>Assasa Technology PVT.LTD</small>
-                        </div>
-                        <div class="body">
-                            <p>Worked as Angular Ui developer with Assasa Technolgy </p>
+                        <div class="project-details">
+                            <p class="company">Azam Deal</p>
+                            <h4 class="title">Online Shopping</h4>
+                            <p class="btn-holder">
+                                <a href="view.html" class="btn-link">view</a>
+                                <a href="https://azamdeal.com" class="btn-link">Goto</a>
+                            </p>
                         </div>
                     </div>
+                    <div class="projects">
+                        <div class="project-holder">
+                            <img src="./assets/images/HTA.png" alt="">
+                        </div>
+                        <div class="project-details">
+                            <p class="company">HTA Tour guide</p>
+                            <h4 class="title">Heritage Trail Afghanistan</h4>
+                            <p class="btn-holder">
+                                <a href="view.html" class="btn-link">view</a>
+                                <a href="https://heritage-trail-afghanistan.netlify.app" class="btn-link">Goto</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="projects">
+                        <div class="project-holder">
+                            <img src="./assets/images/organic.png" alt="">
+                        </div>
+                        <div class="project-details">
+                            <p class="company">Organic FoodLand</p>
+                            <h4 class="title">Online Food Ordering</h4>
+                            <p class="btn-holder">
+                                <a href="view.html" class="btn-link">view</a>
+                                <a href="" class="btn-link">Goto</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-holder">
+                    <button type="button" class="btn-xl">view all works &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <hr>
+            <!-- Resume page -->
+            <div class="resume-page">
+                <div class="heading">
+                    <p class="pre-heading">YEARS OF EXPERIENCE</p>
+                    <h1 class="title">My Resume</h1>
+                </div>
+                <div class="education">
+                    <h1 class="education-content"><i class="fa-solid fa-graduation-cap"></i> &nbsp;Education</h1>
+                    <div class="auto-grid">
+                        <div class="cart">
+                            <div class="heading">
+                                <p class="pre-heading">2017 - 2020</p>
+                                <h2 class="achieved">Bachelor Degree</h2>
+                                <small>Pune University(SPPU)</small>
+                            </div>
+                            <div class="body">
+                                <p>Completed my bachelor degree in the field of 
+                                    BBA-CA in Savitribai Phule Pune Universit</p>
+                            </div>
+                        </div>
+                        <!-- 2 -->
+                        <div class="cart">
+                            <div class="heading">
+                                <p class="pre-heading">MAY 2019 - DEC 2019</p>
+                                <h2 class="achieved">Web Development</h2>
+                                <small>Assasa Technology PR.Ltd </small>
+                            </div>
+                            <div class="body">
+                                <p>Completed web application development using trending 
+                                    technologies.</p>
+                            </div>
+                        </div>
+                        <!-- 3 -->
+                        <div class="cart">
+                            <div class="heading">
+                                <p class="pre-heading">NOV 2018 - FEB 2019</p>
+                                <h2 class="achieved">CCNA Cetified</h2>
+                                <small>SevenMentor and Training PVT. LTD</small>
+                            </div>
+                            <div class="body">
+                                <p>Achieved Cisco Certified Network Associate (CCNA) 
+                                    certification to advance IT knowledge and capabilities. </p>
+                            </div>
+                        </div>
                     <!-- 4 -->
-                    <div class="cart">
-                        <div class="heading">
-                            <p class="pre-heading">JUL 2019 - MAR 2020</p>
-                            <h2 class="achieved">E-Commerce App Developer</h2>
-                            <small>MCE Society</small>
+                        <div class="cart">
+                            <div class="heading">
+                                <p class="pre-heading">2012 - 2015</p>
+                                <h2 class="achieved">HSE Diploma</h2>
+                                <small>Zukor Chahardeh High School</small>
+                            </div>
+                            <div class="body">
+                                <p>Completed High School (General diploma) from my hometown Chahardeh High School. </p>
+                            </div>
                         </div>
-                        <div class="body">
-                            <p>I worked as valunteer software developer in developing AzamDeal 
-                                e-commerce website using PHP-Codeigniter. </p>
+                    </div>
+                </div>
+                <!-- Work Experience -->
+                <div class="education">
+                    <h1 class="education-content"><i class="fa-solid fa-ranking-star"></i> &nbsp;Experience</h1>
+                    <div class="auto-grid">
+                        <div class="cart">
+                            <div class="heading">
+                                <p class="pre-heading">MAR 2024 - current job</p>
+                                <h2 class="achieved">Full Stack Developer</h2>
+                                <small><span style="color:#a52824;font-weight: bold;">i</span>MMAP | Afghanistan-Office</small>
+                            </div>
+                            <div class="body">
+                                <p>Currently Working as Full Stack Developer with 
+                                    <span style="color:#a52824;font-weight: bold;">i</span>MMAP</p>
+                            </div>
+                        </div>
+                        <!-- 2 -->
+                        <div class="cart">
+                            <div class="heading">
+                                <p class="pre-heading">JUL 2023 - MAR 2024</p>
+                                <h2 class="achieved">Intern Full Stack Developer</h2>
+                                <small><span style="color:#a52824;font-weight: bold;">i</span>MMAP | Afghanistan-Office</small>
+                            </div>
+                            <div class="body">
+                                <p>Completed training in developing enterprise-level 
+                                    complex software utilizing robust technologies.</p>
+                            </div>
+                        </div>
+                        <!-- 3 -->
+                        <div class="cart">
+                            <div class="heading">
+                                <p class="pre-heading">MAY 2020 - DEC 2020</p>
+                                <h2 class="achieved">Angular Ui Developer</h2>
+                                <small>Assasa Technology PVT.LTD</small>
+                            </div>
+                            <div class="body">
+                                <p>Worked as Angular Ui developer with Assasa Technolgy </p>
+                            </div>
+                        </div>
+                        <!-- 4 -->
+                        <div class="cart">
+                            <div class="heading">
+                                <p class="pre-heading">JUL 2019 - MAR 2020</p>
+                                <h2 class="achieved">E-Commerce App Developer</h2>
+                                <small>MCE Society</small>
+                            </div>
+                            <div class="body">
+                                <p>I worked as valunteer software developer in developing AzamDeal 
+                                    e-commerce website using PHP-Codeigniter. </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <hr>
-        <!-- testimnial -->
-         <div class="testimonial">
-            <div class="heading">
-                <p class="pre-heading">TESTIMONIALS</p>
-                <h1 class="title">What Clients Say</h1>
-            </div>
-            <div class="two-cols-grid">
-                <div class="content">
-                    <h1 class="title">testimonial</h1>
-                    <p class="text">Client satisfaction drives us to continually strive for 
-                        excellence. We are honored to have received such positive feedback from 
-                        our clients, and we are excited to share their experiences and the impact our work has had.
-                    </p>
+            <hr>
+            <!-- testimnial -->
+            <div class="testimonial">
+                <div class="heading">
+                    <p class="pre-heading">TESTIMONIALS</p>
+                    <h1 class="title">What Clients Say</h1>
                 </div>
-                <div class="swiper-content">
-                    <!-- Slider main container -->
-                    <div class="swiper">
-                        <!-- Additional required wrapper -->
-                        <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
+                <div class="two-cols-grid">
+                    <div class="content">
+                        <h1 class="title">testimonial</h1>
+                        <p class="text">Client satisfaction drives us to continually strive for 
+                            excellence. We are honored to have received such positive feedback from 
+                            our clients, and we are excited to share their experiences and the impact our work has had.
+                        </p>
+                    </div>
+                    <div class="swiper-content">
+                        <!-- Slider main container -->
+                        <div class="swiper">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="card-content">
+                                        <div class="flex-container">
+                                            <div class="image">
+                                                <img src="./assets/images/HTA.jpg" alt="">
+                                            </div>
+                                            <div class="details">
+                                                <h2 class="name">Heritage Trail Afghanistan</h2>
+                                                <p class="designation">Tour & Travel company</p>
+                                                <p class="rate">
+                                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="user-text">
+                                            <p><i class="fa-solid fa-quote-left"></i>
+                                                Exceptional service and attention to detail! 
+                                                Our project exceeded expectations, thanks to their expertise
+                                                <i class="fa-solid fa-quote-right"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide"><div class="testimonial-card">
                                 <div class="card-content">
                                     <div class="flex-container">
                                         <div class="image">
-                                            <img src="./assets/images/HTA.jpg" alt="">
+                                            <img src="./assets/images/organic.png" alt="">
                                         </div>
                                         <div class="details">
-                                            <h2 class="name">Heritage Trail Afghanistan</h2>
-                                            <p class="designation">Tour & Travel company</p>
+                                            <h2 class="name">Organic FoodLand</h2>
+                                            <p class="designation">Online Food ordering Platform</p>
                                             <p class="rate">
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                                                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
@@ -333,176 +367,149 @@
                                     </div>
                                     <div class="user-text">
                                         <p><i class="fa-solid fa-quote-left"></i>
-                                            Exceptional service and attention to detail! 
-                                            Our project exceeded expectations, thanks to their expertise
+                                            Outstanding results and a seamless experience. 
+                                            They truly understand client needs and deliver.
                                             <i class="fa-solid fa-quote-right"></i>
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide"><div class="testimonial-card">
-                            <div class="card-content">
-                                <div class="flex-container">
-                                    <div class="image">
-                                        <img src="./assets/images/organic.png" alt="">
-                                    </div>
-                                    <div class="details">
-                                        <h2 class="name">Organic FoodLand</h2>
-                                        <p class="designation">Online Food ordering Platform</p>
-                                        <p class="rate">
-                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="user-text">
-                                    <p><i class="fa-solid fa-quote-left"></i>
-                                        Outstanding results and a seamless experience. 
-                                        They truly understand client needs and deliver.
-                                        <i class="fa-solid fa-quote-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div></div>
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <div class="card-content">
-                                    <div class="flex-container">
-                                        <div class="image">
-                                            <img src="./assets/images/mateen.jpeg" alt="">
+                            </div></div>
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="card-content">
+                                        <div class="flex-container">
+                                            <div class="image">
+                                                <img src="./assets/images/mateen.jpeg" alt="">
+                                            </div>
+                                            <div class="details">
+                                                <h2 class="name">Abdul Mateen Seddiqi</h2>
+                                                <p class="designation">Software Engineer</p>
+                                                <p class="rate">
+                                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div class="details">
-                                            <h2 class="name">Abdul Mateen Seddiqi</h2>
-                                            <p class="designation">Software Engineer</p>
-                                            <p class="rate">
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                        <div class="user-text">
+                                            <p><i class="fa-solid fa-quote-left"></i>
+                                                Impressive expertise and reliability. 
+                                                They went above and beyond to ensure our goals were met.
+                                                <i class="fa-solid fa-quote-right"></i>
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="user-text">
-                                        <p><i class="fa-solid fa-quote-left"></i>
-                                            Impressive expertise and reliability. 
-                                            They went above and beyond to ensure our goals were met.
-                                            <i class="fa-solid fa-quote-right"></i>
-                                        </p>
-                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        ...
-                        </div>
-                        <!-- If we need pagination -->
-                        <div class="swiper-pagination"></div>
-                    
-                        <!-- If we need navigation buttons -->
-                        <!-- <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div> -->
-                    
-                        <!-- If we need scrollbar -->
-                        <!-- <div class="swiper-scrollbar"></div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <!-- clients -->
-         <div class="contact-page" id="contact-me">
-            <div class="heading">
-                <p class="pre-heading">CONTACT</p>
-                <h1 class="title">Contact With Me</h1>
-            </div>
-            <div class="two-cols-grid">
-                <div class="information">
-                    <div style="text-align: center;margin-bottom: 2rem;">
-                        <h3 style="margin-bottom: 0px;">
-                            <i class="fa-solid fa-chalkboard-user"></i>&nbsp; Let's Talk
-                        </h3>
-                        <small>I'd Love to Hear From You</small>
-                    </div>
-                    <ul class="list-holder">
-                        <li class="list-item">
-                            <div class="title">
-                                <i class="fa-regular fa-map icon"></i> &nbsp;Address
+                            ...
                             </div>
-                            <p class="sub-title">Kabul, Afghanistan</p>
-                        </li>
-                        <li class="list-item">
-                            <div class="title">
-                                <i class="fa-solid fa-phone-volume icon"></i>
-                                &nbsp; Phone Number
-                            </div>
-                            <p class="sub-title">+93 (0) 74 862 1879</p>
-                        </li>
-                        <li class="list-item">
-                            <div class="title">
-                                <i class="fa-regular fa-envelope icon"></i>
-                                &nbsp; E-mail ID
-                            </div>
-                            <p class="sub-title">esmatullah.hashimi2016@gmail.com</p>
-                            
-                        </li>
-                        <li class="list-item">
-                            <div class="title">
-                                <i class="fa-regular fa-circle-check icon"></i>
-                                &nbsp; Availability
-                            </div>
-                            <p class="sub-title">Freelance Available</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="form-holder">
-                    <div style="text-align: center;margin-bottom: 2rem;">
-                        <h3 style="margin-bottom: 0px;">
-                            <i class="fa-brands fa-signal-messenger"></i> &nbsp;Drop Me a Line
-                        </h3>
-                        <small>feel free to get in-touch with me</small>
-                    </div>
-                    
-                    <form action="#" class="contact-form">
-                        <input type="text" class="form-input" placeholder="Enter your full name">
-                        <input type="email" class="form-input" placeholder="Enter your email">
-                        <input type="number" class="form-input" placeholder="Enter your phone number">
-                        <input type="text" class="form-input" placeholder="Enter the subject">
-                        <textarea name="message" cols="20" rows="10" id="message" placeholder="Type your message"></textarea>
-                        <button type="submit">Send Message&nbsp;&nbsp; <i class="fa-regular fa-paper-plane fa-xl"></i></button>
+                            <!-- If we need pagination -->
+                            <div class="swiper-pagination"></div>
                         
-                    </form>
+                            <!-- If we need navigation buttons -->
+                            <!-- <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div> -->
+                        
+                            <!-- If we need scrollbar -->
+                            <!-- <div class="swiper-scrollbar"></div> -->
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <hr>
-        <div class="footer">
-            <div style="text-align: center;">
-                <p>Copyright © <span id="year"></span> <span class="text-gradient">Portfolio</span> All rights reserved.</p>
-                <script>
-                    document.getElementById('year').textContent = new Date().getFullYear();
-                </script>
+            <hr>
+            <!-- clients -->
+            <div class="contact-page" id="contact-me">
+                <div class="heading">
+                    <p class="pre-heading">CONTACT</p>
+                    <h1 class="title">Contact With Me</h1>
+                </div>
+                <div class="two-cols-grid">
+                    <div class="information">
+                        <div style="text-align: center;margin-bottom: 2rem;">
+                            <h3 style="margin-bottom: 0px;">
+                                <i class="fa-solid fa-chalkboard-user"></i>&nbsp; Let's Talk
+                            </h3>
+                            <small>I'd Love to Hear From You</small>
+                        </div>
+                        <ul class="list-holder">
+                            <li class="list-item">
+                                <div class="title">
+                                    <i class="fa-regular fa-map icon"></i> &nbsp;Address
+                                </div>
+                                <p class="sub-title">Kabul, Afghanistan</p>
+                            </li>
+                            <li class="list-item">
+                                <div class="title">
+                                    <i class="fa-solid fa-phone-volume icon"></i>
+                                    &nbsp; Phone Number
+                                </div>
+                                <p class="sub-title">+93 (0) 74 862 1879</p>
+                            </li>
+                            <li class="list-item">
+                                <div class="title">
+                                    <i class="fa-regular fa-envelope icon"></i>
+                                    &nbsp; E-mail ID
+                                </div>
+                                <p class="sub-title">esmatullah.hashimi2016@gmail.com</p>
+                                
+                            </li>
+                            <li class="list-item">
+                                <div class="title">
+                                    <i class="fa-regular fa-circle-check icon"></i>
+                                    &nbsp; Availability
+                                </div>
+                                <p class="sub-title">Freelance Available</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="form-holder">
+                        <div style="text-align: center;margin-bottom: 2rem;">
+                            <h3 style="margin-bottom: 0px;">
+                                <i class="fa-brands fa-signal-messenger"></i> &nbsp;Drop Me a Line
+                            </h3>
+                            <small>feel free to get in-touch with me</small>
+                        </div>
+                        
+                        <form action="#" class="contact-form">
+                            <input type="text" class="form-input" placeholder="Enter your full name">
+                            <input type="email" class="form-input" placeholder="Enter your email">
+                            <input type="number" class="form-input" placeholder="Enter your phone number">
+                            <input type="text" class="form-input" placeholder="Enter the subject">
+                            <textarea name="message" cols="20" rows="10" id="message" placeholder="Type your message"></textarea>
+                            <button type="submit">Send Message&nbsp;&nbsp; <i class="fa-regular fa-paper-plane fa-xl"></i></button>
+                            
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="media-chanels">
-                <a href="https://www.facebook.com/Esmatullah.Farjad"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://x.com/Esmat_Farjad"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/esmatullah-hashimi-5b56401ba"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://github.com/Esmat-Farjad"><i class="fa-brands fa-github"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <hr>
+            <div class="footer">
+                <div style="text-align: center;">
+                    <p>Copyright © <span id="year"></span> <span class="text-gradient">Portfolio</span> All rights reserved.</p>
+                    <script>
+                        document.getElementById('year').textContent = new Date().getFullYear();
+                    </script>
+                </div>
+                <div class="media-chanels">
+                    <a href="https://www.facebook.com/Esmatullah.Farjad"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://x.com/Esmat_Farjad"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/esmatullah-hashimi-5b56401ba"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Esmat-Farjad"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div class="heading">
+                    <h5 class="pre-heading">
+                        My Portfolio
+                    </h5>
+                </div>
             </div>
-            <div class="heading">
-                <h5 class="pre-heading">
-                    My Portfolio
-                </h5>
+            
+            <div class="navigaiton">
+                <a href="#main-page" class=""><i class="fa-solid fa-angles-up icon-design"></i></a>
             </div>
-        </div>
-        
-        <div class="navigaiton">
-            <a href="#main-page"><i class="fa-solid fa-circle-up fa-bounce"></i></a>
         </div>
     </div>
     <!-- Link SwiperJS JavaScript -->
