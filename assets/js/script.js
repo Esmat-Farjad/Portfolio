@@ -79,3 +79,6 @@ function typing(){
 typing();
 
 }catch{}
+
+
+

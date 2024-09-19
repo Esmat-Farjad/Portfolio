@@ -5,6 +5,12 @@
   font-style: normal;
 }
 
+.gradient-text {
+  background: linear-gradient(90deg, #e84393, #f39c12);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @keyframes fadeAnimation {
   from {
     transform: translateY(100px);
@@ -39,6 +45,12 @@ html {
 
 .not-active {
   display: none;
+}
+
+.nav-menu .nav-link:hover {
+  background: linear-gradient(90deg, #e84393, #f39c12);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @media (max-width: 480px) {
@@ -228,7 +240,7 @@ a {
 }
 
 hr {
-  border: 1px solid black;
+  border: 1px solid #fce4be;
 }
 
 .service-page .heading {
@@ -262,7 +274,7 @@ hr {
   border-radius: 5px;
   margin: 0.5rem 1rem;
   border-radius: 5px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   border: 1px solid #ffffff;
 }
 
@@ -372,9 +384,11 @@ hr {
   -webkit-text-fill-color: transparent;
   padding: 10px;
   text-align: start;
-  border-bottom: 1px solid black;
+  width: -moz-fit-content;
+  width: fit-content;
   margin-top: 4rem;
-  font-weight: lighter;
+  font-weight: bold;
+  font-size: 20px;
   text-transform: uppercase;
 }
 
@@ -382,17 +396,11 @@ hr {
   margin: 5rem 0rem;
 }
 
-.current {
-  color: green;
-  text-transform: capitalize;
-}
-
 .swiper {
   width: 100%;
-  height: 18rem;
-  border: 1px solid #ffffff;
+  height: 16rem;
   background-color: #ffffff;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 .two-cols-grid {
@@ -402,8 +410,9 @@ hr {
 }
 
 .two-cols-grid .content {
-  margin-top: 5rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
+  padding: 0rem 2rem;
 }
 
 .two-cols-grid .content .title {
@@ -417,7 +426,7 @@ hr {
 }
 
 .two-cols-grid .swiper-content {
-  margin: 0px;
+  margin: 0rem 1rem;
   padding: 0px;
 }
 
@@ -440,7 +449,6 @@ hr {
   flex-basis: 100px;
   flex-grow: 1;
   flex-shrink: 1;
-  padding: 8px 0px;
   margin: 0px;
 }
 
@@ -450,26 +458,36 @@ hr {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
-  border: 2px solid rgb(59, 144, 255);
+  border: 2px solid #0d6efd;
 }
 
 .flex-container .details .name {
   margin: 0px;
   padding: 0px;
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #e84393, #f39c12);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: capitalize;
 }
 
 .flex-container .details .designation {
   padding: 0px;
   margin: 2px 0px;
+  color: gray;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .flex-container .details .rate {
   color: orange;
+  font-size: 12px;
 }
 
 .card-content .user-text p {
   font-style: italic;
-  padding: 0rem 1rem;
+  padding: 0rem 2rem;
 }
 
 .cart {
@@ -479,7 +497,7 @@ hr {
   padding: 1rem;
   margin: 0.5rem 1rem;
   border-radius: 5px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   border: 1px solid #ffffff;
 }
 
