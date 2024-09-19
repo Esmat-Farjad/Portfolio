@@ -5,6 +5,20 @@
   font-style: normal;
 }
 
+@keyframes fadeAnimation {
+  from {
+    transform: translateY(100px);
+    filter: opacity(0);
+  }
+  to {
+    transform: translateY(0px);
+    filter: opacity(1);
+  }
+}
+.fade-animation {
+  animation: fadeAnimation 1s linear 1;
+}
+
 body {
   background-color: #fffef7;
   margin: 0px;
@@ -45,11 +59,11 @@ html {
   .logo-holder .mobile-menu {
     position: absolute;
     top: 30%;
-    right: 2%;
+    right: 5%;
   }
   .nav-menu {
     position: absolute;
-    top: 5%;
+    top: 7%;
     left: 3%;
     right: 3%;
     border: 1px solid lightgray;
@@ -83,7 +97,7 @@ html {
   .logo-holder .mobile-menu {
     position: absolute;
     top: 30%;
-    right: 2%;
+    right: 5%;
   }
 }
 @media (min-width: 1025px) {
@@ -137,6 +151,7 @@ a {
 .landing-page .heading .title {
   padding: 0px;
   margin: 0px;
+  letter-spacing: 3px;
 }
 
 .landing-page .heading .text {
@@ -204,7 +219,7 @@ a {
 
 .grid-content .image-content img {
   width: 100%;
-  height: 600px;
+  height: 400px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5%;
@@ -307,17 +322,8 @@ hr {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 5rem;
   border-radius: 5px;
-  animation: fadeUp 1s linear 1;
 }
 
-@keyframes fadeUp {
-  from {
-    filter: opacity(0);
-  }
-  to {
-    filter: opacity(1);
-  }
-}
 .projects .project-details .company {
   padding: 0px;
   margin: 0px;

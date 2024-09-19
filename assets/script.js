@@ -37,3 +37,38 @@
     }
 
   });
+  // intersection observer
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.filter(e => e.isIntersecting).forEach(entry => {
+
+        entry.target.classList.add("fade-animation");
+        observer.unobserve(entry.target);
+        
+    });
+});
+document.querySelectorAll(".cart").forEach(e => {
+  observer.observe(e)
+});
+document.querySelectorAll(".card").forEach(e => {
+  observer.observe(e)
+});
+document.querySelectorAll(".projects").forEach(e => {
+  observer.observe(e)
+});
+observer.observe(document.querySelector(".image-content"));
+// typing animation
+try{
+const name = "FULL STACK WEB DEVELOPER !";
+const typingSpeed = 50;
+const typingElement = document.getElementById("position");
+let index = 0;
+function typing(){
+  if(index < name.length) {
+    typingElement.textContent += name.charAt(index);
+    index++;
+    setTimeout(typing, typingSpeed);
+  }
+}
+typing();
+
+}catch{}
