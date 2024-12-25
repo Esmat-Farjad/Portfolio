@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Link SwiperJS CSS -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+    <!-- font-awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+</head>
+<body onload="displayRecords()">
+    <div class="spinner" id="spinner" style="display: flex;justify-content: center; align-items: center; flex-direction: column; width: 100%; height: 100vh;">
+        <img src="../assets/images/spinner.svg" width="300" height="300" alt="">
+        <div class=""><img src="../assets/images/loading.svg" width="100" height="100" alt=""></div>
+    </div>
+    <div class="content not-active" id="content">
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="logo-holder">
+                <a href="/index.html">
+                <img src="../assets/images/logo.svg" class="logo" alt="">
+                </a>
+                <div class="mobile-menu">
+                    <i class="fa-solid fa-pause fa-rotate-90"></i>
+                </div>
+            </div>
+            <ul class="nav-menu not-active" id="nav-menu">
+                <li class="nav-link"><a href="#projects">Portfolio</a></li>
+                <li class="nav-link"><a href="#service">Services</a></li>
+                <li class="nav-link"><a href="#contact-me">Contact Me</a></li>
+                <li class="nav-link"><a href="./assets/Doc/my_resume.pdf" download="my_resume.pdf">Download CV</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="dashboard-grid-layout">
+                <div class="side-nav">
+                    <h4></h4>
+                    <ul style="list-style-type: none;margin:0px;padding: 0px;">
+                        <li style="padding: 2rem 0rem;"><i class="fa-regular fa-envelope fa-xl"></i></li>
+                        <li style="padding: 2rem 0rem;"><i class="fa-solid fa-chart-line fa-xl"></i></li>
+                        <li style="padding: 2rem 0rem;"><i class="fa-regular fa-image fa-xl"></i></li>
+                    </ul>
+                </div>
+                <div class="table-holder">
+                    <h3 class="text-gradient">User Queries</h3>
+                    
+                    <table class="table">
+                        <thead>
+                            <th>Full Name</th>
+                            <th>E-mail</th>
+                            <th>Phone</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody id="table-body">
+                           
+                        </tbody>
+                    </table>
+                    <button type="submit" onclick="deleteCookie('userRecords')" con>
+                        Delete All &nbsp;&nbsp;&nbsp;<i class="fa-regular fa-trash-can"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="message-holder" id="message-holder">
+            </div>
+        </div>
+    </div>
+    <!-- Link SwiperJS JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- custom Link Script -->
+     <script src="../assets/js/script.js"></script>
+</body>
+</html>

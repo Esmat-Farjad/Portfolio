@@ -642,4 +642,66 @@ button[type=submit] {
   background-image: linear-gradient(90deg, #e84393, #f39c12);
   border-radius: 50%;
   z-index: 100;
+}
+
+.dashboard-grid-layout {
+  display: grid;
+  grid-template-columns: 8% 85%;
+}
+
+.side-nav {
+  padding: 1rem;
+  color: white;
+  margin: 0rem auto;
+  background-image: linear-gradient(90deg, #e84393, #f39c12);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.table th {
+  background-color: green;
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: bold;
+}
+.table td {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.table tr:hover {
+  background-color: #f1f1f1;
+}
+@media (max-width: 600px) {
+  .table th, .table td {
+    padding: 8px 10px;
+  }
+}
+.table .message-cell {
+  max-width: 200px; /* Define the maximum width of the message column */
+  overflow: hidden; /* Hide any overflow text */
+  text-overflow: ellipsis; /* Add the ellipsis (...) */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.message-holder {
+  margin: 2rem 0rem;
+}
+.message-holder .inner-div {
+  padding: 2rem;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.message-holder .action-panel {
+  border-top: 1px solid lightgray;
+  padding: 5px 15px;
 }/*# sourceMappingURL=style.css.map */

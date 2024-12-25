@@ -587,3 +587,30 @@ button[type='submit']{
     }
     
 }
+.dashboard-grid-layout{
+    display: grid;
+    grid-template-columns: 8% 85%;
+}
+.side-nav{
+    padding: 1rem;
+    color: white;
+    margin: 0rem auto;
+    background-image: linear-gradient(90deg,#e84393, #f39c12);
+}
+.table{
+    @include table-style();
+}
+.message-holder {
+    margin: 2rem 0rem;
+    
+    .inner-div{
+        padding: 2rem;
+        border: 1px solid lightgray;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .action-panel{
+        border-top: 1px solid lightgray;
+        padding: 5px 15px;
+    }
+}

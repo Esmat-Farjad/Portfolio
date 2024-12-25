@@ -7,3 +7,51 @@ $onyx: #353935;
 $licorice: #1B1212;
 $jet-black: #343434;
 $blue:#0d6efd;
+
+// Mixin for styling the table
+@mixin table-style {
+    width: 100%;
+    
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    // Styling for table headers
+    th {
+        background-color: green;
+        color: white;
+        padding: 12px 15px;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    // Styling for table cells
+    td {
+        padding: 10px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    // Alternating row colors
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    // Optional: Responsive design for small screens
+    @media (max-width: 600px) {
+        th, td {
+            padding: 8px 10px;
+        }
+    }
+    .message-cell {
+        max-width: 200px; /* Define the maximum width of the message column */
+        overflow: hidden; /* Hide any overflow text */
+        text-overflow: ellipsis; /* Add the ellipsis (...) */
+        white-space: nowrap; /* Prevent text from wrapping */
+    }
+}
+
