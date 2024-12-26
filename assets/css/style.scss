@@ -588,14 +588,18 @@ button[type='submit']{
     
 }
 .dashboard-grid-layout{
-    display: grid;
-    grid-template-columns: 8% 85%;
+    display: flex;
+    flex-direction: row;
 }
 .side-nav{
+    flex-basis: 1%;
     padding: 1rem;
     color: white;
     margin: 0rem auto;
     background-image: linear-gradient(90deg,#e84393, #f39c12);
+}
+.table-holder{
+    flex-basis: 93%;
 }
 .table{
     @include table-style();
