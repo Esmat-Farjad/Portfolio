@@ -38,7 +38,7 @@
                 <li class="nav-link"><a href="#projects">Portfolio</a></li>
                 <li class="nav-link"><a href="#service">Services</a></li>
                 <li class="nav-link"><a href="#contact-me">Contact Me</a></li>
-                <li class="nav-link"><a href="./assets/Doc/my_resume.pdf" download="my_resume.pdf">Download CV</a></li>
+                <li class="nav-link"><a href="./assets/Doc/Esmatullah_Hashimi_Resume.pdf" download="Esmatullah_Hashimi_Resume.pdf">Download CV</a></li>
                 <li class="nav-link"><a href="./login.html">Login</a></li>
             </ul>
             
@@ -161,8 +161,8 @@
                             <img src="./assets/images/HTA.png" alt="">
                         </div>
                         <div class="project-details">
-                            <p class="company">HTA Tour guide</p>
-                            <h4 class="title">Heritage Trail Afghanistan</h4>
+                            <p class="company">Blue Lake Tour guide</p>
+                            <h4 class="title">Blue Lake Tour and Travels</h4>
                             <p class="btn-holder">
                                 <a href="view.html" class="btn-link">view</a>
                                 <a href="https://heritage-trail-afghanistan.netlify.app" class="btn-link">Goto</a>
@@ -183,15 +183,30 @@
                         </div>
                     </div>
                 </div>
+                <div class="project-grid" id="toggle-display" style="display: none;">
+                    <div class="projects">
+                        <div class="project-holder">
+                            <img src="./assets/images/task.jpg" alt="">
+                        </div>
+                        <div class="project-details">
+                            <p class="company">Task Manager</p>
+                            <h4 class="title">Office task manager platform</h4><small>Desktop App</small>
+                            <p class="btn-holder">
+                                <a href="view.html" class="btn-link">view</a>
+                                <a href="https://task-manager-2-wpzj.onrender.com/" class="btn-link">Goto</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
                 <div class="btn-holder">
-                    <button type="button" class="btn-xl">view all works &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
+                    <button type="button" onclick="handleToggle()" class="btn-xl">view all works &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
                 </div>
             </div>
             <hr>
             <!-- Resume page -->
             <div class="resume-page">
                 <div class="heading">
-                    <p class="pre-heading">YEARS OF EXPERIENCE</p>
+                    <p class="pre-heading">EDUCATION & YEARS OF EXPERIENCE</p>
                     <h1 class="title">My Resume</h1>
                 </div>
                 <div class="education">
@@ -251,7 +266,7 @@
                     <div class="auto-grid">
                         <div class="cart">
                             <div class="heading">
-                                <p class="pre-heading">MAR 2024 - current job</p>
+                                <p class="pre-heading">JAN 2024 - MAR 2025</p>
                                 <h2 class="achieved">Full Stack Developer</h2>
                                 <small><span style="color:#a52824;font-weight: bold;">i</span>MMAP | Afghanistan-Office</small>
                             </div>
@@ -264,7 +279,7 @@
                         <div class="cart">
                             <div class="heading">
                                 <p class="pre-heading">JUL 2023 - MAR 2024</p>
-                                <h2 class="achieved">Intern Full Stack Developer</h2>
+                                <h2 class="achieved">jUNIOR Full Stack Developer</h2>
                                 <small><span style="color:#a52824;font-weight: bold;">i</span>MMAP | Afghanistan-Office</small>
                             </div>
                             <div class="body">
@@ -489,7 +504,9 @@
                 </div>
             </div>
             <hr>
-            <div class="footer">
+            
+    </div>
+    <div class="footer">
                 <div style="text-align: center;">
                     <p>Copyright © <span id="year"></span> <span class="text-gradient">Portfolio</span> All rights reserved.</p>
                     <script>
@@ -515,7 +532,6 @@
                 <a href="#main-page" class=""><i class="fa-solid fa-angles-up icon-design"></i></a>
             </div>
         </div>
-    </div>
     <!-- Link SwiperJS JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- custom Link Script -->

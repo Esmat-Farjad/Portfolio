@@ -212,3 +212,6 @@ function loginRequest(e){
   
 }
   
+function handleToggle(){
+  document.querySelector("#toggle-display").style.display="block";
+}

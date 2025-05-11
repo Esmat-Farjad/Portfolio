@@ -595,9 +595,11 @@ button[type=submit] {
 }
 
 .footer {
-  margin-bottom: 1rem;
-  position: sticky;
-  bottom: 0;
+  font-size: 12px;
+  margin-top: 2rem;
+  background-color: rgb(241, 241, 241);
+  padding: 10px;
+  width: 100%;
 }
 
 .footer .heading {
@@ -714,3 +716,4 @@ button[type=submit] {
   border-top: 1px solid lightgray;
   padding: 5px 15px;
 }/*# sourceMappingURL=style.css.map */
+
