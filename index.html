@@ -3,15 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <!-- google font -->
+    <meta
+      name="description"
+      content="Esmatullah Hashimi - Full Stack Developer Portfolio with 3+ years of experience in software engineering and web development."
+    />
+    <meta
+      name="keywords"
+      content="Full Stack Developer, Software Engineer, Web Development, Portfolio"
+    />
+    <meta name="author" content="Esmatullah Hashimi" />
+    <title>Esmatullah Hashimi - Full Stack Developer Portfolio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/style.css" />
     <!-- Link SwiperJS CSS -->
     <link
       rel="stylesheet"
@@ -22,721 +36,1439 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dark: "#1a1a1a",
+              "matte-black": "#2d2d2d",
+              "gradient-start": "#e84393",
+              "gradient-end": "#f39c12",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            animation: {
+              "fade-up": "fadeUp 1s ease-out",
+              "fade-in": "fadeIn 0.5s ease-out",
+              "pulse-slow": "pulse 3s infinite",
+            },
+            keyframes: {
+              fadeUp: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .gradient-text {
+          @apply bg-gradient-to-r from-gradient-start to-gradient-end bg-clip-text text-transparent;
+        }
+        .gradient-bg {
+          @apply bg-gradient-to-r from-gradient-start to-gradient-end;
+        }
+        .gradient-border {
+          @apply border border-gradient-start/30;
+        }
+        .text-shadow {
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #2d2d2d;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #e84393, #f39c12);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(to bottom, #d63384, #e67e22);
+      }
+
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
   </head>
-  <body>
+  <body class="bg-dark text-white font-sans">
+    <!-- Spinner -->
     <div
-      class="spinner"
       id="spinner"
-      style="
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 100%;
-        height: 100vh;
-      "
+      class="fixed inset-0 z-50 flex flex-col justify-center items-center w-full h-screen bg-dark"
     >
-      <img src="./assets/images/spinner.svg" width="300" height="300" alt="" />
-      <div class="">
-        <img
-          src="./assets/images/loading.svg"
-          width="100"
-          height="100"
-          alt=""
-        />
+      <div class="relative">
+        <div
+          class="w-20 h-20 border-4 border-gradient-start border-t-transparent rounded-full animate-spin"
+        ></div>
+        <div
+          class="absolute top-0 left-0 w-20 h-20 border-4 border-transparent border-t-gradient-end rounded-full animate-spin"
+          style="animation-duration: 1.5s"
+        ></div>
       </div>
+      <p class="mt-4 gradient-text font-semibold animate-pulse">
+        Loading Portfolio...
+      </p>
     </div>
-    <div class="content not-active" id="content">
+
+    <!-- Main Content -->
+    <div id="content" class="hidden">
       <!-- Navbar -->
-      <div class="navbar">
-        <div class="logo-holder">
-          <img src="./assets/images/logo.svg" class="logo" alt="" />
-          <div class="mobile-menu">
-            <i class="fa-solid fa-pause fa-rotate-90"></i>
+      <nav
+        class="sticky top-0 z-50 bg-dark/95 backdrop-blur-md border-b border-gray-700 transition-all duration-300"
+        id="navbar"
+      >
+        <div
+          class="container mx-auto px-4 py-3 flex justify-between items-center"
+        >
+          <div class="flex items-center">
+            <a href="#main-page" class="flex items-center">
+              <img
+                src="./assets/images/logo.svg"
+                class="h-10"
+                alt="Esmatullah Hashimi Logo"
+              />
+              <span class="ml-2 font-bold gradient-text text-lg hidden sm:block"
+                >Esmatullah Hashimi</span
+              >
+            </a>
           </div>
+
+          <!-- Mobile menu button -->
+          <button
+            id="mobile-menu-button"
+            class="md:hidden text-xl p-2 rounded-lg hover:bg-matte-black transition-colors"
+            aria-label="Toggle menu"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <!-- Desktop menu -->
+          <ul class="hidden md:flex space-x-6">
+            <li>
+              <a
+                href="#projects"
+                class="hover:gradient-text transition-colors py-2 px-3 rounded-lg hover:bg-matte-black"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a
+                href="#service"
+                class="hover:gradient-text transition-colors py-2 px-3 rounded-lg hover:bg-matte-black"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact-me"
+                class="hover:gradient-text transition-colors py-2 px-3 rounded-lg hover:bg-matte-black"
+                >Contact Me</a
+              >
+            </li>
+            <li>
+              <a
+                href="./assets/Doc/Esmatullah_Hashimi_Resume.pdf"
+                download="Esmatullah_Hashimi_Resume.pdf"
+                class="hover:gradient-text transition-colors py-2 px-3 rounded-lg hover:bg-matte-black"
+              >
+                Download CV
+              </a>
+            </li>
+            <li>
+              <a
+                href="./login.html"
+                class="gradient-bg text-white py-2 px-4 rounded-lg hover:shadow-lg transition-all"
+                >Login</a
+              >
+            </li>
+          </ul>
         </div>
 
-        <ul class="nav-menu not-active" id="nav-menu">
-          <li class="nav-link"><a href="#projects">Portfolio</a></li>
-          <li class="nav-link"><a href="#service">Services</a></li>
-          <li class="nav-link"><a href="#contact-me">Contact Me</a></li>
-          <li class="nav-link">
-            <a
-              href="./assets/Doc/Esmatullah_Hashimi_Resume.pdf"
-              download="Esmatullah_Hashimi_Resume.pdf"
-              >Download CV</a
-            >
-          </li>
-          <li class="nav-link"><a href="./login.html">Login</a></li>
-        </ul>
-      </div>
-      <!-- main page start -->
-      <div class="container">
-        <div class="landing-page" id="main-page">
-          <div class="heading">
-            <h1 class="title">Esmatullah Hashimi</h1>
-            <p class="pre-heading space" id="position"></p>
-          </div>
-          <div class="auto-grid">
-            <div class="grid-content">
-              <div class="bio-content">
-                <p class="bio-info">
-                  Technology-driven Software Engineer with 3+ years of
-                  experience in translating business requirements and functional
-                  specification into code modules and software solutions. Deep
-                  understanding of system integration testing (SIT) and user
-                  acceptance testing (UAT). Engages in the software development
-                  lifecycle to support the development, configuration,
-                  modification, and testing of integrated business and
-                  enterprise application solutions. Drives the adoption of new
-                  technologies by researching innovative technology trends and
-                  developments.
-                </p>
-                <div class="find-me">
-                  <p class="title">FIND ME ON</p>
-                  <a href="https://www.facebook.com/Esmatullah.Farjad"
-                    ><i class="fa-brands fa-facebook-f"></i
-                  ></a>
-                  <a href="https://x.com/Esmat_Farjad"
-                    ><i class="fa-brands fa-x-twitter"></i
-                  ></a>
+        <!-- Mobile menu -->
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden bg-matte-black/95 backdrop-blur-md py-4 px-4 border-t border-gray-700 animate-fade-in"
+        >
+          <ul class="space-y-3">
+            <li>
+              <a
+                href="#projects"
+                class="block py-3 px-4 hover:gradient-text transition-colors rounded-lg hover:bg-dark"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a
+                href="#service"
+                class="block py-3 px-4 hover:gradient-text transition-colors rounded-lg hover:bg-dark"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact-me"
+                class="block py-3 px-4 hover:gradient-text transition-colors rounded-lg hover:bg-dark"
+                >Contact Me</a
+              >
+            </li>
+            <li>
+              <a
+                href="./assets/Doc/Esmatullah_Hashimi_Resume.pdf"
+                download="Esmatullah_Hashimi_Resume.pdf"
+                class="block py-3 px-4 hover:gradient-text transition-colors rounded-lg hover:bg-dark"
+              >
+                Download CV
+              </a>
+            </li>
+            <li>
+              <a
+                href="./login.html"
+                class="block py-3 px-4 gradient-bg text-white rounded-lg text-center mt-2"
+                >Login</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section id="main-page" class="py-16 md:py-24 pt-24">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-col lg:flex-row items-center gap-12">
+            <!-- Text Content -->
+            <div class="lg:w-1/2 animate-fade-up">
+              <h1
+                class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-wider text-shadow"
+              >
+                Esmatullah Hashimi
+              </h1>
+              <p
+                id="position"
+                class="text-xl gradient-text font-medium mb-5 tracking-widest h-8"
+              >
+                Full Stack Developer
+              </p>
+
+              <p class="text-gray-300 mb-10 leading-relaxed text-lg">
+                Technology-driven Software Engineer with 3+ years of experience
+                in translating business requirements and functional
+                specification into code modules and software solutions. Deep
+                understanding of system integration testing (SIT) and user
+                acceptance testing (UAT). Engages in the software development
+                lifecycle to support the development, configuration,
+                modification, and testing of integrated business and enterprise
+                application solutions. Drives the adoption of new technologies
+                by researching innovative technology trends and developments.
+              </p>
+
+              <!-- Social Links -->
+              <div class="mb-10">
+                <p class="gradient-text font-bold mb-4">FIND ME ON</p>
+                <div class="flex space-x-4">
+                  <a
+                    href="https://www.facebook.com/Esmatullah.Farjad"
+                    class="gradient-bg text-white p-3 rounded-lg transition-all hover:scale-110 hover:shadow-lg"
+                    aria-label="Facebook"
+                  >
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a
+                    href="https://x.com/Esmat_Farjad"
+                    class="gradient-bg text-white p-3 rounded-lg transition-all hover:scale-110 hover:shadow-lg"
+                    aria-label="Twitter"
+                  >
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
                   <a
                     href="https://www.linkedin.com/in/esmatullah-hashimi-5b56401ba"
-                    ><i class="fa-brands fa-linkedin-in"></i
-                  ></a>
-                  <a href="https://github.com/Esmat-Farjad"
-                    ><i class="fa-brands fa-github"></i
-                  ></a>
+                    class="gradient-bg text-white p-3 rounded-lg transition-all hover:scale-110 hover:shadow-lg"
+                    aria-label="LinkedIn"
+                  >
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    href="https://github.com/Esmat-Farjad"
+                    class="gradient-bg text-white p-3 rounded-lg transition-all hover:scale-110 hover:shadow-lg"
+                    aria-label="GitHub"
+                  >
+                    <i class="fa-brands fa-github"></i>
+                  </a>
                 </div>
-                <div class="statistics">
-                  <div class="box">
-                    <h1 class="title">3+</h1>
-                    <p class="text">Years of Experience</p>
-                  </div>
-                  <div class="box middle-box">
-                    <h1 class="title">20+</h1>
-                    <p class="text">Successful Projects</p>
-                  </div>
-                  <div class="box">
-                    <h1 class="title">5+</h1>
-                    <p class="text">Happy Clients</p>
-                  </div>
+              </div>
+
+              <!-- Statistics -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div
+                  class="gradient-border p-4 rounded-lg text-center transition-all hover:scale-105 hover:shadow-lg"
+                >
+                  <h3 class="text-2xl font-bold">3+</h3>
+                  <p class="text-gray-300">Years of Experience</p>
+                </div>
+                <div
+                  class="border-2 border-gradient-end p-4 rounded-lg text-center transition-all hover:scale-105 hover:shadow-lg"
+                >
+                  <h3 class="text-2xl font-bold">20+</h3>
+                  <p class="text-gray-300">Successful Projects</p>
+                </div>
+                <div
+                  class="gradient-border p-4 rounded-lg text-center transition-all hover:scale-105 hover:shadow-lg"
+                >
+                  <h3 class="text-2xl font-bold">5+</h3>
+                  <p class="text-gray-300">Happy Clients</p>
                 </div>
               </div>
             </div>
-            <div class="grid-content">
-              <div class="image-content">
-                <img src="assets/images/my-image.png" alt="" />
+
+            <!-- Image Content -->
+            <div class="lg:w-1/2 flex justify-center animate-fade-up">
+              <div class="relative w-full max-w-md">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src="assets/images/my-image.png"
+                    alt="Esmatullah Hashimi - Full Stack Developer"
+                    class="w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent pointer-events-none"
+                  ></div>
+                </div>
+                <!-- Floating elements -->
+                <div
+                  class="absolute -top-4 -right-4 w-8 h-8 rounded-full gradient-bg animate-pulse-slow"
+                ></div>
+                <div
+                  class="absolute -bottom-4 -left-4 w-6 h-6 rounded-full gradient-bg animate-pulse-slow"
+                  style="animation-delay: 1s"
+                ></div>
               </div>
             </div>
           </div>
         </div>
-        <hr />
-        <!-- services -->
-        <div class="service-page" id="service">
-          <div class="heading">
-            <p class="pre-heading">SERVICES PROVIDED</p>
-            <h1 class="title">What I Do</h1>
+      </section>
+
+      <!-- Clients Section -->
+      <div class="my-5 container mx-auto px-4">
+        <div class="border border-gray-700 py-4 rounded-xl">
+          <p class="text-center gradient-text font-bold mb-4">TRUSTED BY</p>
+          <div class="flex flex-wrap gap-6 items-center justify-center">
+            <div class="group p-2 transition-all duration-300 hover:scale-110">
+              <img
+                src="https://immap.org/wp-content/uploads/2016/12/iMMAP-logostrapline_transparent-copy.png"
+                alt="iMMAP Report Hub"
+                class="h-12 object-contain filter opacity-70 group-hover:opacity-100"
+              />
+            </div>
+            <div class="group p-2 transition-all duration-300 hover:scale-110">
+              <img
+                src="https://shopino24.com/storage/settings/logo-jizmaDpuUc.png"
+                alt="Shopino24"
+                class="h-12 object-contain filter opacity-70 group-hover:opacity-100"
+              />
+            </div>
+            <div class="group p-2 transition-all duration-300 hover:scale-110">
+              <img
+                src="https://sevenguyshalal.com/_next/static/media/logo-small.2deb12eb.webp"
+                alt="Seven Guys Halal"
+                class="h-12 object-contain filter opacity-70 group-hover:opacity-100"
+              />
+            </div>
+            <div class="group p-2 transition-all duration-300 hover:scale-110">
+              <img
+                src="./assets/images/azamdeal.png"
+                alt="AzamDeal"
+                class="h-12 object-contain filter opacity-70 group-hover:opacity-100"
+              />
+            </div>
+            <div class="group p-2 transition-all duration-300 hover:scale-110">
+              <img
+                src="https://organicfoodland.netlify.app/assets/images/brand.png"
+                alt="Organic FoodLand"
+                class="h-12 object-contain filter opacity-70 group-hover:opacity-100"
+              />
+            </div>
           </div>
-          <div class="auto-grid">
-            <div class="card">
-              <p class="icon-design">
-                <i class="fa-solid fa-laptop-code fa-lg"></i>
-              </p>
-              <h2 class="title">Website Design</h2>
-              <p class="text">
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 my-12"></div>
+
+      <!-- Services Section -->
+      <section id="service" class="py-16">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <p class="gradient-text font-bold mb-2">SERVICES PROVIDED</p>
+            <h2 class="text-4xl md:text-5xl font-bold">What I Do</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Service Card 1 -->
+            <div
+              class="bg-matte-black p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+            >
+              <div
+                class="gradient-text text-2xl mb-4 group-hover:scale-110 transition-transform duration-300"
+              >
+                <i class="fa-solid fa-laptop-code"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Web Application Design</h3>
+              <p class="text-gray-300">
                 Crafting visually stunning and user-friendly websites tailored
                 to your needs.
               </p>
             </div>
-            <div class="card">
-              <p class="icon-design">
-                <i class="fa-brands fa-app-store fa-lg"></i>
-              </p>
-              <h2 class="title">App Development</h2>
-              <p class="text">
+
+            <!-- Service Card 2 -->
+            <div
+              class="bg-matte-black p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+            >
+              <div
+                class="gradient-text text-2xl mb-4 group-hover:scale-110 transition-transform duration-300"
+              >
+                <i class="fa-brands fa-app-store"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Software Development</h3>
+              <p class="text-gray-300">
                 Building intuitive and powerful apps that elevate your digital
                 experience.
               </p>
             </div>
-            <div class="card">
-              <p class="icon-design">
-                <i class="fa-regular fa-credit-card fa-lg"></i>
-              </p>
-              <h2 class="title">Business Strategy</h2>
-              <p class="text">
+
+            <!-- Service Card 3 -->
+            <div
+              class="bg-matte-black p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+            >
+              <div
+                class="gradient-text text-2xl mb-4 group-hover:scale-110 transition-transform duration-300"
+              >
+                <i class="fa-regular fa-credit-card"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Business Strategy</h3>
+              <p class="text-gray-300">
                 Empowering your growth with data-driven strategies and
                 innovative solutions.
               </p>
             </div>
-            <div class="card">
-              <p class="icon-design">
-                <i class="fa-brands fa-searchengin fa-lg"></i>
-              </p>
-              <h2 class="title">SEO</h2>
-              <p class="text">
+
+            <!-- Service Card 4 -->
+            <div
+              class="bg-matte-black p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+            >
+              <div
+                class="gradient-text text-2xl mb-4 group-hover:scale-110 transition-transform duration-300"
+              >
+                <i class="fa-brands fa-searchengin"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">SEO</h3>
+              <p class="text-gray-300">
                 Boosting your online visibility with tailored SEO strategies
                 that drive results.
               </p>
             </div>
           </div>
         </div>
-        <hr />
-        <!-- work page -->
-        <div class="resume-page" id="projects">
-          <div class="heading">
-            <p class="pre-heading">AWARD WINNING WORKS</p>
-            <h1 class="title">Recent Works</h1>
+      </section>
+
+      <div class="border-t border-gray-700 my-12"></div>
+
+      <!-- Projects Section -->
+      <section id="projects" class="py-16">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <p class="gradient-text font-bold mb-2">AWARD WINNING WORKS</p>
+            <h2 class="text-4xl md:text-5xl font-bold">Recent Works</h2>
           </div>
-          <div class="project-grid">
-            <div class="projects">
-              <div class="project-holder">
-                <img src="./assets/images/iMMAP.svg" alt="" />
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10"
+          >
+            <!-- Project 1 -->
+            <div
+              class="group relative overflow-hidden rounded-xl shadow-lg border border-zinc-700 transition-all duration-500 hover:shadow-2xl"
+            >
+              <div class="h-48 overflow-hidden">
+                <img
+                  src="https://immap.org/wp-content/uploads/2018/06/reporthub-dashboard-1024x528.png"
+                  alt="iMMAP Report Hub"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
               </div>
-              <div class="project-details">
-                <p class="company"><b style="color: #a52824">i</b>MMAP.Inc</p>
-                <h4 class="title">Report Hub</h4>
-                <p class="btn-holder">
-                  <a href="./view.html" class="btn-link">view</a>
-                  <a href="https://dev.reporthub.immap.org" class="btn-link"
-                    >Goto</a
-                  >
+              <div
+                class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-4 text-center"
+              >
+                <p class="text-white font-semibold mb-2">
+                  <span class="text-red-500 font-bold">i</span>MMAP.Inc
                 </p>
-              </div>
-            </div>
-            <div class="projects">
-              <div class="project-holder">
-                <img src="./assets/images/azamdeal.png" alt="" />
-              </div>
-              <div class="project-details">
-                <p class="company">Azam Deal</p>
-                <h4 class="title">Online Shopping</h4>
-                <p class="btn-holder">
-                  <a href="view.html" class="btn-link">view</a>
-                  <a href="https://azamdeal.com" class="btn-link">Goto</a>
-                </p>
-              </div>
-            </div>
-            <div class="projects">
-              <div class="project-holder">
-                <img src="./assets/images/HTA.png" alt="" />
-              </div>
-              <div class="project-details">
-                <p class="company">Blue Lake Tour guide</p>
-                <h4 class="title">Blue Lake Tour and Travels</h4>
-                <p class="btn-holder">
-                  <a href="view.html" class="btn-link">view</a>
+                <h4 class="text-white text-lg font-bold mb-4">Report Hub</h4>
+                <div class="flex space-x-3">
                   <a
-                    href="https://heritage-trail-afghanistan.netlify.app"
-                    class="btn-link"
-                    >Goto</a
+                    href="./view.html"
+                    class="border border-gray-400 text-white px-4 py-2 rounded hover:border-gradient-start transition-colors hover:bg-gradient-start/10"
+                    >View</a
                   >
-                </p>
-              </div>
-            </div>
-            <div class="projects">
-              <div class="project-holder">
-                <img src="./assets/images/organic.png" alt="" />
-              </div>
-              <div class="project-details">
-                <p class="company">Organic FoodLand</p>
-                <h4 class="title">Online Food Ordering</h4>
-                <p class="btn-holder">
-                  <a href="view.html" class="btn-link">view</a>
-                  <a href="" class="btn-link">Goto</a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="project-grid" id="toggle-display" style="display: none">
-            <div class="projects">
-              <div class="project-holder">
-                <img src="./assets/images/task.jpg" alt="" />
-              </div>
-              <div class="project-details">
-                <p class="company">Task Manager</p>
-                <h4 class="title">Office task manager platform</h4>
-                <small>Desktop App</small>
-                <p class="btn-holder">
-                  <a href="view.html" class="btn-link">view</a>
                   <a
-                    href="https://task-manager-2-wpzj.onrender.com/"
-                    class="btn-link"
+                    href="https://immap.org/product/100000449/"
+                    class="border border-gray-400 text-white px-4 py-2 rounded hover:border-gradient-start transition-colors hover:bg-gradient-start/10"
                     >Goto</a
                   >
-                </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div
+              class="group relative overflow-hidden rounded-xl shadow-lg border border-zinc-700 transition-all duration-500 hover:shadow-2xl"
+            >
+              <div class="h-48 overflow-hidden">
+                <img
+                  src="./assets/images/shopino24-image.png"
+                  alt="shopino24"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div
+                class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-4 text-center"
+              >
+                <p class="text-white font-semibold mb-2">Shopino24</p>
+                <h4 class="text-white text-lg font-bold mb-4">
+                  Online Shopping
+                </h4>
+                <div class="flex space-x-3">
+                  <a
+                    href="view.html"
+                    class="border border-gray-400 text-white px-4 py-2 rounded hover:border-gradient-start transition-colors hover:bg-gradient-start/10"
+                    >View</a
+                  >
+                  <a
+                    href="https://shopino24.com"
+                    class="border border-gray-400 text-white px-4 py-2 rounded hover:border-gradient-start transition-colors hover:bg-gradient-start/10"
+                    >Goto</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div
+              class="group relative overflow-hidden rounded-xl shadow-lg border border-zinc-700 transition-all duration-500 hover:shadow-2xl"
+            >
+              <div class="h-48 overflow-hidden">
+                <img
+                  src="./assets/images/allneeda.png"
+                  alt="allneeda"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div
+                class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-4 text-center"
+              >
+                <p class="text-white font-semibold mb-2">Allneeda Services</p>
+                <h4 class="text-white text-lg font-bold mb-4">
+                  All in one solution Services
+                </h4>
+                <div class="flex space-x-3">
+                  <a
+                    href="view.html"
+                    class="border border-gray-400 text-white px-4 py-2 rounded hover:border-gradient-start transition-colors hover:bg-gradient-start/10"
+                    >View</a
+                  >
+                  <a
+                    href="https://https://frontend-servicyee.vercel.app/home-services"
+                    class="border border-gray-400 text-white px-4 py-2 rounded hover:border-gradient-start transition-colors hover:bg-gradient-start/10"
+                    >Goto</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div
+              class="group relative overflow-hidden rounded-xl shadow-lg border border-zinc-700 transition-all duration-500 hover:shadow-2xl"
+            >
+              <div class="h-48 overflow-hidden">
+                <img
+                  src="./assets/images/organicfoodland.png"
+                  alt="Organic FoodLand"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div
+                class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-4 text-center"
+              >
+                <p class="text-white font-semibold mb-2">Organic FoodLand</p>
+                <h4 class="text-white text-lg font-bold mb-4">
+                  Online Food Ordering
+                </h4>
+                <div class="flex space-x-3">
+                  <a
+                    href="view.html"
+                    class="border border-gray-400 text-white px-4 py-2 rounded hover:border-gradient-start transition-colors hover:bg-gradient-start/10"
+                    >View</a
+                  >
+                  <a
+                    href="https://organicfoodland.netlify.app/"
+                    class="border border-gray-400 text-white px-4 py-2 rounded hover:border-gradient-start transition-colors hover:bg-gradient-start/10"
+                    >Goto</a
+                  >
+                </div>
               </div>
             </div>
           </div>
-          <div class="btn-holder">
-            <button type="button" onclick="handleToggle()" class="btn-xl">
-              view all works &nbsp;<i class="fa-solid fa-arrow-right"></i>
+
+          <!-- Hidden Projects -->
+          <div id="toggle-display" class="hidden animate-fade-in">
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10"
+            >
+              <!-- Additional Project -->
+              <div
+                class="group relative overflow-hidden rounded-xl shadow-lg border border-zinc-700 transition-all duration-500 hover:shadow-2xl"
+              >
+                <div class="h-48 overflow-hidden">
+                  <img
+                    src="./assets/images/taskmanager.png"
+                    alt="Task Manager"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div
+                  class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-4 text-center"
+                >
+                  <p class="text-white font-semibold mb-2">Task Manager</p>
+                  <h4 class="text-white text-lg font-bold mb-1">
+                    Office task manager platform
+                  </h4>
+                  <small class="text-gray-300 mb-4">Desktop App</small>
+                  <div class="flex space-x-3">
+                    <a
+                      href="view.html"
+                      class="border border-gray-400 text-white px-4 py-2 rounded hover:border-gradient-start transition-colors hover:bg-gradient-start/10"
+                      >View</a
+                    >
+                    <a
+                      href="https://task-manager-2-wpzj.onrender.com"
+                      class="border border-gray-400 text-white px-4 py-2 rounded hover:border-gradient-start transition-colors hover:bg-gradient-start/10"
+                      >Goto</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- additional -->
+              <div
+                class="group relative overflow-hidden rounded-xl shadow-lg border border-zinc-700 transition-all duration-500 hover:shadow-2xl"
+              >
+                <div class="h-48 overflow-hidden">
+                  <img
+                    src="./assets/images/bluelake.png"
+                    alt="Blue Lake Tour & Travels"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div
+                  class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-4 text-center"
+                >
+                  <p class="text-white font-semibold mb-2">
+                    Blue Lake Tour & Travels
+                  </p>
+                  <h4 class="text-white text-lg font-bold mb-1">
+                    Tour guide platform
+                  </h4>
+                  <small class="text-gray-300 mb-4"></small>
+                  <div class="flex space-x-3">
+                    <a
+                      href="view.html"
+                      class="border border-gray-400 text-white px-4 py-2 rounded hover:border-gradient-start transition-colors hover:bg-gradient-start/10"
+                      >View</a
+                    >
+                    <a
+                      href="https://heritage-trail-afghanistan.netlify.app"
+                      class="border border-gray-400 text-white px-4 py-2 rounded hover:border-gradient-start transition-colors hover:bg-gradient-start/10"
+                      >Goto</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button
+              id="view-all-btn"
+              type="button"
+              class="gradient-bg text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center mx-auto group"
+              aria-expanded="false"
+            >
+              <span id="btn-text">View all works</span>
+              <i
+                class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"
+              ></i>
             </button>
           </div>
         </div>
-        <hr />
-        <!-- Resume page -->
-        <div class="resume-page">
-          <div class="heading">
-            <p class="pre-heading">EDUCATION & YEARS OF EXPERIENCE</p>
-            <h1 class="title">My Resume</h1>
+      </section>
+
+      <div class="border-t border-gray-700 my-12"></div>
+
+      <!-- Resume Section -->
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <p class="gradient-text font-bold mb-2">
+              EDUCATION & YEARS OF EXPERIENCE
+            </p>
+            <h2 class="text-4xl md:text-5xl font-bold">My Resume</h2>
           </div>
-          <div class="education">
-            <h1 class="education-content">
-              <i class="fa-solid fa-graduation-cap"></i> &nbsp;Education
-            </h1>
-            <div class="auto-grid">
-              <div class="cart">
-                <div class="heading">
-                  <p class="pre-heading">2017 - 2020</p>
-                  <h2 class="achieved">Bachelor Degree</h2>
-                  <small>Pune University(SPPU)</small>
+
+          <!-- Education -->
+          <div class="mb-16">
+            <h3 class="gradient-text text-xl font-bold mb-8 flex items-center">
+              <i class="fa-solid fa-graduation-cap mr-2"></i> Education
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Education 1 -->
+              <div
+                class="bg-matte-black p-6 rounded-xl shadow-lg transition-all hover:shadow-xl"
+              >
+                <div class="mb-4">
+                  <p class="gradient-text font-medium mb-1">2017 - 2020</p>
+                  <h4 class="text-xl font-semibold">Bachelor Degree</h4>
+                  <small class="text-gray-400">Pune University(SPPU)</small>
                 </div>
-                <div class="body">
-                  <p>
-                    Completed my bachelor degree in the field of BBA-CA in
-                    Savitribai Phule Pune Universit
-                  </p>
-                </div>
+                <p class="text-gray-300">
+                  Completed my bachelor degree in the field of BBA-CA in
+                  Savitribai Phule Pune University.
+                </p>
               </div>
-              <!-- 2 -->
-              <div class="cart">
-                <div class="heading">
-                  <p class="pre-heading">MAY 2019 - DEC 2019</p>
-                  <h2 class="achieved">Web Development</h2>
-                  <small>Assasa Technology PR.Ltd </small>
-                </div>
-                <div class="body">
-                  <p>
-                    Completed web application development using trending
-                    technologies.
+
+              <!-- Education 2 -->
+              <div
+                class="bg-matte-black p-6 rounded-xl shadow-lg transition-all hover:shadow-xl"
+              >
+                <div class="mb-4">
+                  <p class="gradient-text font-medium mb-1">
+                    MAY 2019 - DEC 2019
                   </p>
+                  <h4 class="text-xl font-semibold">Web Development</h4>
+                  <small class="text-gray-400">Assasa Technology PR.Ltd</small>
                 </div>
+                <p class="text-gray-300">
+                  Completed web application development using trending
+                  technologies.
+                </p>
               </div>
-              <!-- 3 -->
-              <div class="cart">
-                <div class="heading">
-                  <p class="pre-heading">NOV 2018 - FEB 2019</p>
-                  <h2 class="achieved">CCNA Cetified</h2>
-                  <small>SevenMentor and Training PVT. LTD</small>
-                </div>
-                <div class="body">
-                  <p>
-                    Achieved Cisco Certified Network Associate (CCNA)
-                    certification to advance IT knowledge and capabilities.
+
+              <!-- Education 3 -->
+              <div
+                class="bg-matte-black p-6 rounded-xl shadow-lg transition-all hover:shadow-xl"
+              >
+                <div class="mb-4">
+                  <p class="gradient-text font-medium mb-1">
+                    NOV 2018 - FEB 2019
                   </p>
+                  <h4 class="text-xl font-semibold">CCNA Certified</h4>
+                  <small class="text-gray-400"
+                    >SevenMentor and Training PVT. LTD</small
+                  >
                 </div>
+                <p class="text-gray-300">
+                  Achieved Cisco Certified Network Associate (CCNA)
+                  certification to advance IT knowledge and capabilities.
+                </p>
               </div>
-              <!-- 4 -->
-              <div class="cart">
-                <div class="heading">
-                  <p class="pre-heading">2012 - 2015</p>
-                  <h2 class="achieved">HSE Diploma</h2>
-                  <small>Zukor Chahardeh High School</small>
+
+              <!-- Education 4 -->
+              <div
+                class="bg-matte-black p-6 rounded-xl shadow-lg transition-all hover:shadow-xl"
+              >
+                <div class="mb-4">
+                  <p class="gradient-text font-medium mb-1">2012 - 2015</p>
+                  <h4 class="text-xl font-semibold">HSE Diploma</h4>
+                  <small class="text-gray-400"
+                    >Zukor Chahardeh High School</small
+                  >
                 </div>
-                <div class="body">
-                  <p>
-                    Completed High School (General diploma) from my hometown
-                    Chahardeh High School.
-                  </p>
-                </div>
+                <p class="text-gray-300">
+                  Completed High School (General diploma) from my hometown
+                  Chahardeh High School.
+                </p>
               </div>
             </div>
           </div>
-          <!-- Work Experience -->
-          <div class="education">
-            <h1 class="education-content">
-              <i class="fa-solid fa-ranking-star"></i> &nbsp;Experience
-            </h1>
-            <div class="auto-grid">
-              <div class="cart">
-                <div class="heading">
-                  <p class="pre-heading">JAN 2024 - MAR 2025</p>
-                  <h2 class="achieved">Full Stack Developer</h2>
-                  <small
-                    ><span style="color: #a52824; font-weight: bold">i</span
-                    >MMAP | Afghanistan-Office</small
-                  >
-                </div>
-                <div class="body">
-                  <p>
-                    Currently Working as Full Stack Developer with
-                    <span style="color: #a52824; font-weight: bold">i</span>MMAP
+
+          <!-- Experience -->
+          <div>
+            <h3 class="gradient-text text-xl font-bold mb-8 flex items-center">
+              <i class="fa-solid fa-ranking-star mr-2"></i> Experience
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Experience 1 -->
+              <div
+                class="bg-matte-black p-6 rounded-xl shadow-lg transition-all hover:shadow-xl"
+              >
+                <div class="mb-4">
+                  <p class="gradient-text font-medium mb-1">
+                    May 2025 - Present
                   </p>
+                  <h4 class="text-xl font-semibold">Full Stack Developer</h4>
+                  <small class="text-gray-400">
+                    <span class="text-blue-700 font-bold">B</span>rand
+                    Construction Company |Kabul (USA timezone)
+                  </small>
                 </div>
+                <p class="text-gray-300">
+                  Currently Working as Full Stack Developer with
+                  <span class="text-red-500 font-bold">B</span>CC
+                </p>
               </div>
-              <!-- 2 -->
-              <div class="cart">
-                <div class="heading">
-                  <p class="pre-heading">JUL 2023 - MAR 2024</p>
-                  <h2 class="achieved">jUNIOR Full Stack Developer</h2>
-                  <small
-                    ><span style="color: #a52824; font-weight: bold">i</span
-                    >MMAP | Afghanistan-Office</small
-                  >
-                </div>
-                <div class="body">
-                  <p>
-                    Completed training in developing enterprise-level complex
-                    software utilizing robust technologies.
+
+              <div
+                class="bg-matte-black p-6 rounded-xl shadow-lg transition-all hover:shadow-xl"
+              >
+                <div class="mb-4">
+                  <p class="gradient-text font-medium mb-1">
+                    Jul 2025 - Present
                   </p>
+                  <h4 class="text-xl font-semibold">
+                    Web & Mobile Full Stack Developer
+                  </h4>
+                  <small class="text-gray-400">
+                    <span class="text-orange-600 font-bold">S</span>hopino24
+                    |Kabul, Afghanistan
+                  </small>
                 </div>
+                <p class="text-gray-300">
+                  Currently Working as Full Stack Developer with
+                  <span class="text-red-500 font-bold">S</span>hopino
+                </p>
               </div>
-              <!-- 3 -->
-              <div class="cart">
-                <div class="heading">
-                  <p class="pre-heading">MAY 2020 - DEC 2020</p>
-                  <h2 class="achieved">Angular Ui Developer</h2>
-                  <small>Assasa Technology PVT.LTD</small>
-                </div>
-                <div class="body">
-                  <p>Worked as Angular Ui developer with Assasa Technolgy</p>
-                </div>
-              </div>
-              <!-- 4 -->
-              <div class="cart">
-                <div class="heading">
-                  <p class="pre-heading">JUL 2019 - MAR 2020</p>
-                  <h2 class="achieved">E-Commerce App Developer</h2>
-                  <small>MCE Society</small>
-                </div>
-                <div class="body">
-                  <p>
-                    I worked as valunteer software developer in developing
-                    AzamDeal e-commerce website using PHP-Codeigniter.
+
+              <div
+                class="bg-matte-black p-6 rounded-xl shadow-lg transition-all hover:shadow-xl"
+              >
+                <div class="mb-4">
+                  <p class="gradient-text font-medium mb-1">
+                    JAN 2024 - MAR 2025
                   </p>
+                  <h4 class="text-xl font-semibold">Full Stack Developer</h4>
+                  <small class="text-gray-400">
+                    <span class="text-red-500 font-bold">i</span>MMAP |
+                    Afghanistan-Office
+                  </small>
                 </div>
+                <p class="text-gray-300">
+                  Worked as Full Stack Developer with
+                  <span class="text-red-500 font-bold">i</span>MMAP
+                </p>
+              </div>
+
+              <!-- Experience 2 -->
+              <div
+                class="bg-matte-black p-6 rounded-xl shadow-lg transition-all hover:shadow-xl"
+              >
+                <div class="mb-4">
+                  <p class="gradient-text font-medium mb-1">
+                    JUL 2023 - MAR 2024
+                  </p>
+                  <h4 class="text-xl font-semibold">
+                    Junior Full Stack Developer
+                  </h4>
+                  <small class="text-gray-400">
+                    <span class="text-red-500 font-bold">i</span>MMAP |
+                    Afghanistan-Office
+                  </small>
+                </div>
+                <p class="text-gray-300">
+                  Completed training in developing enterprise-level complex
+                  software utilizing robust technologies.
+                </p>
+              </div>
+
+              <!-- Experience 3 -->
+              <div
+                class="bg-matte-black p-6 rounded-xl shadow-lg transition-all hover:shadow-xl"
+              >
+                <div class="mb-4">
+                  <p class="gradient-text font-medium mb-1">
+                    MAY 2020 - DEC 2020
+                  </p>
+                  <h4 class="text-xl font-semibold">Angular UI Developer</h4>
+                  <small class="text-gray-400">Assasa Technology PVT.LTD</small>
+                </div>
+                <p class="text-gray-300">
+                  Worked as Angular UI developer with Assasa Technology
+                </p>
+              </div>
+
+              <!-- Experience 4 -->
+              <div
+                class="bg-matte-black p-6 rounded-xl shadow-lg transition-all hover:shadow-xl"
+              >
+                <div class="mb-4">
+                  <p class="gradient-text font-medium mb-1">
+                    JUL 2019 - MAR 2020
+                  </p>
+                  <h4 class="text-xl font-semibold">
+                    E-Commerce App Developer
+                  </h4>
+                  <small class="text-gray-400">MCE Society</small>
+                </div>
+                <p class="text-gray-300">
+                  I worked as volunteer software developer in developing
+                  AzamDeal e-commerce website using PHP-Codeigniter.
+                </p>
               </div>
             </div>
           </div>
         </div>
-        <hr />
-        <!-- testimnial -->
-        <div class="testimonial">
-          <div class="heading">
-            <p class="pre-heading">TESTIMONIALS</p>
-            <h1 class="title">What Clients Say</h1>
+      </section>
+
+      <div class="border-t border-gray-700 my-12"></div>
+
+      <!-- Testimonials Section -->
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <p class="gradient-text font-bold mb-2">TESTIMONIALS</p>
+            <h2 class="text-4xl md:text-5xl font-bold">What Clients Say</h2>
           </div>
-          <div class="two-cols-grid">
-            <div class="content">
-              <h1 class="title">testimonial</h1>
-              <p class="text">
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Text Content -->
+            <div>
+              <h3 class="text-3xl font-bold mb-6">Testimonial</h3>
+              <p class="text-gray-300 text-lg leading-relaxed">
                 Client satisfaction drives us to continually strive for
                 excellence. We are honored to have received such positive
                 feedback from our clients, and we are excited to share their
                 experiences and the impact our work has had.
               </p>
             </div>
-            <div class="swiper-content">
-              <!-- Slider main container -->
+
+            <!-- Swiper -->
+            <div class="swiper-container">
               <div class="swiper">
-                <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
-                  <!-- Slides -->
+                  <!-- Testimonial 1 -->
                   <div class="swiper-slide">
-                    <div class="testimonial-card">
-                      <div class="card-content">
-                        <div class="flex-container">
-                          <div class="image">
-                            <img src="./assets/images/HTA.jpg" alt="" />
-                          </div>
-                          <div class="details">
-                            <h2 class="name">Heritage Trail Afghanistan</h2>
-                            <p class="designation">Tour & Travel company</p>
-                            <p class="rate">
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                            </p>
-                          </div>
+                    <div class="bg-matte-black p-6 rounded-xl shadow-lg">
+                      <div class="flex items-center mb-6">
+                        <div
+                          class="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-blue-500"
+                        >
+                          <img
+                            src="./assets/images/HTA.jpg"
+                            alt="Heritage Trail Afghanistan"
+                            class="w-full h-full object-cover"
+                          />
                         </div>
-                        <div class="user-text">
-                          <p>
-                            <i class="fa-solid fa-quote-left gradient-text"></i>
-                            &nbsp; Exceptional service and attention to detail!
-                            <br />
-                            Our project exceeded expectations, thanks to their
-                            expertise. &nbsp;
-                            <i
-                              class="fa-solid fa-quote-right gradient-text"
-                            ></i>
+                        <div>
+                          <h4 class="font-bold gradient-text">Blue Lake</h4>
+                          <p class="text-gray-400 text-sm">
+                            Tour & Travel company
                           </p>
+                          <div class="flex text-yellow-400 mt-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                          </div>
                         </div>
+                      </div>
+                      <div class="text-gray-300 italic">
+                        <i
+                          class="fa-solid fa-quote-left gradient-text mr-2"
+                        ></i>
+                        Exceptional service and attention to detail! Our project
+                        exceeded expectations, thanks to their expertise.
+                        <i
+                          class="fa-solid fa-quote-right gradient-text ml-2"
+                        ></i>
                       </div>
                     </div>
                   </div>
+
+                  <!-- Testimonial 2 -->
                   <div class="swiper-slide">
-                    <div class="testimonial-card">
-                      <div class="card-content">
-                        <div class="flex-container">
-                          <div class="image">
-                            <img src="./assets/images/organic.png" alt="" />
-                          </div>
-                          <div class="details">
-                            <h2 class="name">Organic FoodLand</h2>
-                            <p class="designation">
-                              Online Food ordering Platform
-                            </p>
-                            <p class="rate">
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                            </p>
-                          </div>
+                    <div class="bg-matte-black p-6 rounded-xl shadow-lg">
+                      <div class="flex items-center mb-6">
+                        <div
+                          class="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-blue-500"
+                        >
+                          <img
+                            src="./assets/images/organic.png"
+                            alt="Organic FoodLand"
+                            class="w-full h-full object-cover"
+                          />
                         </div>
-                        <div class="user-text">
-                          <p>
-                            <i class="fa-solid fa-quote-left gradient-text"></i
-                            >&nbsp; Outstanding results and a seamless
-                            experience. <br />
-                            They truly understand client needs and
-                            deliver.&nbsp;
-                            <i
-                              class="fa-solid fa-quote-right gradient-text"
-                            ></i>
+                        <div>
+                          <h4 class="font-bold gradient-text">
+                            Organic FoodLand
+                          </h4>
+                          <p class="text-gray-400 text-sm">
+                            Online Food ordering Platform
                           </p>
+                          <div class="flex text-yellow-400 mt-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                          </div>
                         </div>
+                      </div>
+                      <div class="text-gray-300 italic">
+                        <i
+                          class="fa-solid fa-quote-left gradient-text mr-2"
+                        ></i>
+                        Outstanding results and a seamless experience. They
+                        truly understand client needs and deliver.
+                        <i
+                          class="fa-solid fa-quote-right gradient-text ml-2"
+                        ></i>
                       </div>
                     </div>
                   </div>
+
+                  <!-- Testimonial 3 -->
                   <div class="swiper-slide">
-                    <div class="testimonial-card">
-                      <div class="card-content">
-                        <div class="flex-container">
-                          <div class="image">
-                            <img src="./assets/images/mateen.jpeg" alt="" />
-                          </div>
-                          <div class="details">
-                            <h2 class="name">Abdul Mateen Seddiqi</h2>
-                            <p class="designation">Software Engineer</p>
-                            <p class="rate">
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style="color: #ffd43b"
-                              ></i>
-                            </p>
+                    <div class="bg-matte-black p-6 rounded-xl shadow-lg">
+                      <div class="flex items-center mb-6">
+                        <div
+                          class="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-blue-500"
+                        >
+                          <img
+                            src="./assets/images/mateen.jpeg"
+                            alt="Abdul Mateen Seddiqi"
+                            class="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div>
+                          <h4 class="font-bold gradient-text">
+                            Abdul Mateen Seddiqi
+                          </h4>
+                          <p class="text-gray-400 text-sm">Software Engineer</p>
+                          <div class="flex text-yellow-400 mt-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                           </div>
                         </div>
-                        <div class="user-text">
-                          <p>
-                            <i class="fa-solid fa-quote-left gradient-text"></i
-                            >&nbsp; Impressive expertise and reliability. <br />
-                            They went above and beyond to ensure our goals were
-                            met.&nbsp;
-                            <i
-                              class="fa-solid fa-quote-right gradient-text"
-                            ></i>
-                          </p>
-                        </div>
+                      </div>
+                      <div class="text-gray-300 italic">
+                        <i
+                          class="fa-solid fa-quote-left gradient-text mr-2"
+                        ></i>
+                        Impressive expertise and reliability. They went above
+                        and beyond to ensure our goals were met.
+                        <i
+                          class="fa-solid fa-quote-right gradient-text ml-2"
+                        ></i>
                       </div>
                     </div>
                   </div>
-                  ...
                 </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
-
-                <!-- If we need navigation buttons -->
-                <!-- <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div> -->
-
-                <!-- If we need scrollbar -->
-                <!-- <div class="swiper-scrollbar"></div> -->
+                <div class="swiper-pagination mt-6"></div>
               </div>
             </div>
           </div>
         </div>
-        <hr />
-        <!-- clients -->
-        <div class="contact-page" id="contact-me">
-          <div class="heading">
-            <p class="pre-heading">CONTACT</p>
-            <h1 class="title">Contact With Me</h1>
+      </section>
+
+      <div class="border-t border-gray-700 my-12"></div>
+
+      <!-- Contact Section -->
+      <section id="contact-me" class="py-16">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <p class="gradient-text font-bold mb-2">CONTACT</p>
+            <h2 class="text-4xl md:text-5xl font-bold">Contact With Me</h2>
           </div>
-          <div class="two-cols-grid">
-            <div class="information">
-              <div style="text-align: center; margin-bottom: 2rem">
-                <h3 style="margin-bottom: 0px">
-                  <i class="fa-solid fa-chalkboard-user"></i>&nbsp; Let's Talk
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Contact Information -->
+            <div>
+              <div class="text-center mb-8">
+                <h3
+                  class="text-2xl font-bold mb-2 flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-chalkboard-user mr-2"></i> Let's Talk
                 </h3>
-                <small>I'd Love to Hear From You</small>
+                <p class="text-gray-400">I'd Love to Hear From You</p>
               </div>
-              <ul class="list-holder">
-                <li class="list-item">
-                  <div class="title">
-                    <i class="fa-regular fa-map icon"></i> &nbsp;Address
+
+              <ul class="space-y-6">
+                <li class="flex items-start">
+                  <div class="gradient-text text-xl mr-4 mt-1">
+                    <i class="fa-regular fa-map"></i>
                   </div>
-                  <p class="sub-title">Kabul, Afghanistan</p>
+                  <div>
+                    <h4 class="font-bold text-lg uppercase tracking-wider">
+                      Address
+                    </h4>
+                    <p class="text-gray-300 ml-8">Kabul, Afghanistan</p>
+                  </div>
                 </li>
-                <li class="list-item">
-                  <div class="title">
-                    <i class="fa-solid fa-phone-volume icon"></i>
-                    &nbsp; Phone Number
+
+                <li class="flex items-start">
+                  <div class="gradient-text text-xl mr-4 mt-1">
+                    <i class="fa-solid fa-phone-volume"></i>
                   </div>
-                  <p class="sub-title">+93 (0) 74 862 1879</p>
+                  <div>
+                    <h4 class="font-bold text-lg uppercase tracking-wider">
+                      Phone Number
+                    </h4>
+                    <p class="text-gray-300 ml-8">+93 (0) 74 862 1879</p>
+                  </div>
                 </li>
-                <li class="list-item">
-                  <div class="title">
-                    <i class="fa-regular fa-envelope icon"></i>
-                    &nbsp; E-mail ID
+
+                <li class="flex items-start">
+                  <div class="gradient-text text-xl mr-4 mt-1">
+                    <i class="fa-regular fa-envelope"></i>
                   </div>
-                  <p class="sub-title">esmatullah.hashimi2016@gmail.com</p>
+                  <div>
+                    <h4 class="font-bold text-lg uppercase tracking-wider">
+                      E-mail ID
+                    </h4>
+                    <p class="text-gray-300 ml-8">
+                      esmatullah.hashimi2016@gmail.com
+                    </p>
+                  </div>
                 </li>
-                <li class="list-item">
-                  <div class="title">
-                    <i class="fa-regular fa-circle-check icon"></i>
-                    &nbsp; Availability
+
+                <li class="flex items-start">
+                  <div class="gradient-text text-xl mr-4 mt-1">
+                    <i class="fa-regular fa-circle-check"></i>
                   </div>
-                  <p class="sub-title">Freelance Available</p>
+                  <div>
+                    <h4 class="font-bold text-lg uppercase tracking-wider">
+                      Availability
+                    </h4>
+                    <p class="text-gray-300 ml-8">Freelance Available</p>
+                  </div>
                 </li>
               </ul>
             </div>
-            <div class="form-holder">
-              <div style="text-align: center; margin-bottom: 2rem">
-                <h3 style="margin-bottom: 0px">
-                  <i class="fa-brands fa-signal-messenger"></i> &nbsp;Drop Me a
+
+            <!-- Contact Form -->
+            <div>
+              <div class="text-center mb-8">
+                <h3
+                  class="text-2xl font-bold mb-2 flex items-center justify-center"
+                >
+                  <i class="fa-brands fa-signal-messenger mr-2"></i> Drop Me a
                   Line
                 </h3>
-                <small>feel free to get in-touch with me</small>
+                <p class="text-gray-400">feel free to get in-touch with me</p>
               </div>
 
-              <form action="#" class="contact-form">
+              <form class="space-y-4" id="contact-form">
                 <input
                   type="text"
                   id="fullname"
                   name="fullname"
-                  class="form-input"
+                  class="w-full p-3 bg-matte-black border border-orange-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
                   placeholder="Enter your full name"
+                  required
                 />
+
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  class="form-input"
+                  class="w-full p-3 bg-matte-black border border-orange-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
                   placeholder="Enter your email"
+                  required
                 />
+
                 <input
-                  type="number"
+                  type="tel"
                   id="phone"
                   name="phone"
-                  class="form-input"
+                  class="w-full p-3 bg-matte-black border border-orange-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
                   placeholder="Enter your phone number"
                 />
+
                 <input
                   type="text"
                   id="subject"
                   name="subject"
-                  class="form-input"
+                  class="w-full p-3 bg-matte-black border border-orange-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
                   placeholder="Enter the subject"
+                  required
                 />
+
                 <textarea
                   name="message"
-                  cols="20"
-                  rows="10"
                   id="message"
+                  rows="5"
+                  class="w-full p-3 bg-matte-black border border-orange-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
                   placeholder="Type your message"
+                  required
                 ></textarea>
-                <button type="submit" onclick="saveRecords()">
-                  Send Message&nbsp;&nbsp;
-                  <i class="fa-regular fa-paper-plane fa-xl"></i>
+
+                <button
+                  type="submit"
+                  class="w-full gradient-bg text-white font-semibold py-3 rounded-lg hover:shadow-lg transition-all flex items-center justify-center group"
+                >
+                  <span id="submit-text">Send Message</span>
+                  <i
+                    class="fa-regular fa-paper-plane ml-2 group-hover:translate-x-1 transition-transform"
+                  ></i>
                 </button>
               </form>
             </div>
           </div>
         </div>
-        <hr />
-      </div>
-      <div class="footer">
-        <div style="text-align: center">
-          <p>
-            Copyright © <span id="year"></span>
-            <span class="text-gradient">Portfolio</span> All rights reserved.
-          </p>
-          <script>
-            document.getElementById("year").textContent =
-              new Date().getFullYear();
-          </script>
-        </div>
-        <div class="media-chanels">
-          <a href="https://www.facebook.com/Esmatullah.Farjad"
-            ><i class="fa-brands fa-facebook-f"></i
-          ></a>
-          <a href="https://x.com/Esmat_Farjad"
-            ><i class="fa-brands fa-x-twitter"></i
-          ></a>
-          <a href="https://www.linkedin.com/in/esmatullah-hashimi-5b56401ba"
-            ><i class="fa-brands fa-linkedin-in"></i
-          ></a>
-          <a href="https://github.com/Esmat-Farjad"
-            ><i class="fa-brands fa-github"></i
-          ></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-youtube"></i></a>
-        </div>
-        <div class="heading">
-          <h5 class="pre-heading">My Portfolio</h5>
-        </div>
-      </div>
+      </section>
 
-      <div class="navigaiton">
-        <a href="#main-page" class=""
-          ><i class="fa-solid fa-angles-up icon-design"></i
-        ></a>
+      <div class="border-t border-gray-700 my-12"></div>
+
+      <!-- Footer -->
+      <footer class="py-8 bg-matte-black">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="text-center md:text-left mb-4 md:mb-0">
+              <p>
+                Copyright © <span id="year"></span>
+                <span class="gradient-text font-bold">Portfolio</span> All
+                rights reserved.
+              </p>
+            </div>
+
+            <div class="flex space-x-3 mb-4 md:mb-0">
+              <a
+                href="https://www.facebook.com/Esmatullah.Farjad"
+                class="gradient-bg text-white p-2 rounded-lg hover:scale-110 transition-transform"
+                aria-label="Facebook"
+              >
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://x.com/Esmat_Farjad"
+                class="gradient-bg text-white p-2 rounded-lg hover:scale-110 transition-transform"
+                aria-label="Twitter"
+              >
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/esmatullah-hashimi-5b56401ba"
+                class="gradient-bg text-white p-2 rounded-lg hover:scale-110 transition-transform"
+                aria-label="LinkedIn"
+              >
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://github.com/Esmat-Farjad"
+                class="gradient-bg text-white p-2 rounded-lg hover:scale-110 transition-transform"
+                aria-label="GitHub"
+              >
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a
+                href="#"
+                class="gradient-bg text-white p-2 rounded-lg hover:scale-110 transition-transform"
+                aria-label="Instagram"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="gradient-bg text-white p-2 rounded-lg hover:scale-110 transition-transform"
+                aria-label="YouTube"
+              >
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
+
+            <div>
+              <h5 class="gradient-text font-bold">My Portfolio</h5>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Back to Top Button -->
+      <div class="fixed bottom-8 right-8 z-40">
+        <a
+          href="#main-page"
+          class="gradient-bg text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all block opacity-0 translate-y-10"
+          id="back-to-top"
+          aria-label="Back to top"
+        >
+          <i class="fa-solid fa-angles-up"></i>
+        </a>
       </div>
     </div>
+
     <!-- Link SwiperJS JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- custom Link Script -->
-    <script src="assets/js/script.js"></script>
+
+    <script>
+      // Set current year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Initialize Swiper
+      document.addEventListener("DOMContentLoaded", function () {
+        const swiper = new Swiper(".swiper", {
+          loop: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          autoplay: {
+            delay: 5000,
+          },
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+          // Change icon based on menu state
+          const icon = mobileMenuButton.querySelector("i");
+          if (mobileMenu.classList.contains("hidden")) {
+            icon.className = "fa-solid fa-bars";
+          } else {
+            icon.className = "fa-solid fa-times";
+          }
+        });
+
+        // View all works toggle
+        const viewAllBtn = document.getElementById("view-all-btn");
+        const toggleDisplay = document.getElementById("toggle-display");
+        const btnText = document.getElementById("btn-text");
+
+        viewAllBtn.addEventListener("click", function () {
+          toggleDisplay.classList.toggle("hidden");
+
+          // Change button text based on state
+          if (toggleDisplay.classList.contains("hidden")) {
+            btnText.textContent = "View all works";
+            viewAllBtn.querySelector("i").className =
+              "fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1";
+          } else {
+            btnText.textContent = "Show less";
+            viewAllBtn.querySelector("i").className =
+              "fa-solid fa-arrow-up ml-2 transition-transform group-hover:-translate-y-1";
+          }
+        });
+
+        // Simulate loading
+        setTimeout(function () {
+          document.getElementById("spinner").style.display = "none";
+          document.getElementById("content").classList.remove("hidden");
+        }, 2000);
+
+        // Typing effect for position
+        const positionElement = document.getElementById("position");
+        const positions = [
+          "Full Stack Developer",
+          "Software Engineer",
+          "Mobile App Developer",
+        ];
+        let currentPosition = 0;
+        let currentChar = 0;
+        let isDeleting = false;
+
+        function typePosition() {
+          const currentText = positions[currentPosition];
+
+          if (isDeleting) {
+            positionElement.textContent = currentText.substring(
+              0,
+              currentChar - 1
+            );
+            currentChar--;
+          } else {
+            positionElement.textContent = currentText.substring(
+              0,
+              currentChar + 1
+            );
+            currentChar++;
+          }
+
+          if (!isDeleting && currentChar === currentText.length) {
+            setTimeout(() => (isDeleting = true), 1000);
+          } else if (isDeleting && currentChar === 0) {
+            isDeleting = false;
+            currentPosition = (currentPosition + 1) % positions.length;
+          }
+
+          setTimeout(typePosition, isDeleting ? 50 : 100);
+        }
+
+        // Start typing effect
+        typePosition();
+
+        // Back to top button
+        const backToTopButton = document.getElementById("back-to-top");
+
+        window.addEventListener("scroll", function () {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.remove("opacity-0", "translate-y-10");
+            backToTopButton.classList.add("opacity-100", "translate-y-0");
+          } else {
+            backToTopButton.classList.remove("opacity-100", "translate-y-0");
+            backToTopButton.classList.add("opacity-0", "translate-y-10");
+          }
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", function () {
+          if (window.pageYOffset > 50) {
+            navbar.classList.add("shadow-lg");
+          } else {
+            navbar.classList.remove("shadow-lg");
+          }
+        });
+
+        // Form submission
+        const contactForm = document.getElementById("contact-form");
+        const submitText = document.getElementById("submit-text");
+
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Change button text to show loading
+          const originalText = submitText.textContent;
+          submitText.textContent = "Sending...";
+
+          // Simulate form submission
+          setTimeout(function () {
+            submitText.textContent = "Message Sent!";
+            contactForm.reset();
+
+            // Reset button text after 2 seconds
+            setTimeout(function () {
+              submitText.textContent = originalText;
+            }, 2000);
+          }, 1500);
+        });
+      });
+    </script>
   </body>
 </html>

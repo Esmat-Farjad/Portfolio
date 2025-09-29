@@ -1,91 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - My Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <!-- Link SwiperJS CSS -->
     <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <!-- font-awesome cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
 
-</head>
-<body>
-    <div class="spinner" id="spinner" style="display: flex;justify-content: center; align-items: center; flex-direction: column; width: 100%; height: 100vh;">
-        <img src="./assets/images/spinner.svg" width="300" height="300" alt="">
-        <div class=""><img src="./assets/images/loading.svg" width="100" height="100" alt=""></div>
-        
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dark: "#1a1a1a",
+              "matte-black": "#2d2d2d",
+              "gradient-start": "#e84393",
+              "gradient-end": "#f39c12",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            animation: {
+              "fade-up": "fadeUp 1s ease-out",
+              "fade-in": "fadeIn 0.5s ease-out",
+            },
+            keyframes: {
+              fadeUp: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .gradient-text {
+          @apply bg-gradient-to-r from-gradient-start to-gradient-end bg-clip-text text-transparent;
+        }
+        .gradient-bg {
+          @apply bg-gradient-to-r from-gradient-start to-gradient-end;
+        }
+        .gradient-border {
+          @apply border border-gradient-start/30;
+        }
+      }
+
+      /* Custom styles */
+      .login-container {
+        background: linear-gradient(
+          135deg,
+          rgba(26, 26, 26, 0.95) 0%,
+          rgba(45, 45, 45, 0.9) 100%
+        );
+      }
+    </style>
+  </head>
+  <body class="bg-dark text-white font-sans min-h-screen flex flex-col">
+    <!-- Spinner -->
+    <div
+      id="spinner"
+      class="fixed inset-0 z-50 flex flex-col justify-center items-center w-full h-screen bg-dark"
+    >
+      <div class="relative">
+        <div
+          class="w-20 h-20 border-4 border-gradient-start border-t-transparent rounded-full animate-spin"
+        ></div>
+        <div
+          class="absolute top-0 left-0 w-20 h-20 border-4 border-transparent border-t-gradient-end rounded-full animate-spin"
+          style="animation-duration: 1.5s"
+        ></div>
+      </div>
+      <p class="mt-4 gradient-text font-semibold animate-pulse">Loading...</p>
     </div>
-    <div class="content not-active" id="content" style="height: 80vh;">
-        <!-- Navbar -->
-        <div class="navbar">
-            <div class="logo-holder">
-                <a href="index.html"><img src="./assets/images/logo.svg" class="logo" alt=""></a>
-                <div class="mobile-menu">
-                    <i class="fa-solid fa-pause fa-rotate-90"></i>
-                </div>
-            </div>
-            <ul class="nav-menu not-active" id="nav-menu">
-                <li class="nav-link"><a href="index.html?#projects">Portfolio</a></li>
-                <li class="nav-link"><a href="index.html?#service">Services</a></li>
-                <li class="nav-link"><a href="index.html?#contact-me">Contact Me</a></li>
-                <li class="nav-link"><a href="./assets/Doc/Esmatullah_Hashimi_Resume.pdf" download="Esmatullah_Hashimi_Resume.pdf">Download CV</a></li>
-                
-            </ul>
-        </div>
-        <div class="form-holder">
-            <div style="text-align: center;margin:5rem auto;display: flex;justify-content: center;align-items: center;max-width: 500px;width: 100%;">
-                <form action="#" class="contact-form" onsubmit="loginRequest(event)" style="min-width: 100px; width: 100%;">
-                    <p>
-                        <h1 style="padding: 0px;margin: 0px;">SIGN IN</h1>
-                        <h5 style="padding: 0px;margin: 0px; font-weight: lighter;">Provide the below credential to log in into your account</h5>
-                    </p>
-                    <br>
-                    <span style="color: red;" id="error-message"></span>
-                    <input type="text" id="username" name="username" class="form-input" placeholder="Username">
-                    <input type="password" id="password" name="password" class="form-input" placeholder="Password">
-                    
-                    <br>
-                    <button class="login-button" type="submit">Login</button>
-                </form>
-            </div>
+
+    <!-- Main Content -->
+    <div id="content" class="hidden flex-1 flex flex-col">
+      <!-- Navbar -->
+      <nav
+        class="sticky top-0 z-50 bg-dark/95 backdrop-blur-md border-b border-gray-700"
+      >
+        <div
+          class="container mx-auto px-4 py-3 flex justify-between items-center"
+        >
+          <div class="flex items-center">
+            <a href="index.html" class="flex items-center">
+              <img
+                src="./assets/images/logo.svg"
+                class="h-10"
+                alt="Esmatullah Hashimi Logo"
+              />
+              <span class="ml-2 font-bold gradient-text text-lg hidden sm:block"
+                >Esmatullah Hashimi</span
+              >
+            </a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button
+            id="mobile-menu-button"
+            class="md:hidden text-xl p-2 rounded-lg hover:bg-matte-black transition-colors"
+            aria-label="Toggle menu"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <!-- Desktop menu -->
+          <ul class="hidden md:flex space-x-6">
+            <li>
+              <a
+                href="index.html?#projects"
+                class="hover:gradient-text transition-colors py-2 px-3 rounded-lg hover:bg-matte-black"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html?#service"
+                class="hover:gradient-text transition-colors py-2 px-3 rounded-lg hover:bg-matte-black"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html?#contact-me"
+                class="hover:gradient-text transition-colors py-2 px-3 rounded-lg hover:bg-matte-black"
+                >Contact Me</a
+              >
+            </li>
+            <li>
+              <a
+                href="./assets/Doc/Esmatullah_Hashimi_Resume.pdf"
+                download="Esmatullah_Hashimi_Resume.pdf"
+                class="hover:gradient-text transition-colors py-2 px-3 rounded-lg hover:bg-matte-black"
+              >
+                Download CV
+              </a>
+            </li>
+          </ul>
         </div>
 
+        <!-- Mobile menu -->
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden bg-matte-black/95 backdrop-blur-md py-4 px-4 border-t border-gray-700 animate-fade-in"
+        >
+          <ul class="space-y-3">
+            <li>
+              <a
+                href="index.html?#projects"
+                class="block py-3 px-4 hover:gradient-text transition-colors rounded-lg hover:bg-dark"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html?#service"
+                class="block py-3 px-4 hover:gradient-text transition-colors rounded-lg hover:bg-dark"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html?#contact-me"
+                class="block py-3 px-4 hover:gradient-text transition-colors rounded-lg hover:bg-dark"
+                >Contact Me</a
+              >
+            </li>
+            <li>
+              <a
+                href="./assets/Doc/Esmatullah_Hashimi_Resume.pdf"
+                download="Esmatullah_Hashimi_Resume.pdf"
+                class="block py-3 px-4 hover:gradient-text transition-colors rounded-lg hover:bg-dark"
+              >
+                Download CV
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Login Form Section -->
+      <div
+        class="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 login-container"
+      >
+        <div class="max-w-md w-full space-y-8 animate-fade-up">
+          <div class="text-center">
+            <h1 class="text-3xl font-bold gradient-text mb-2">SIGN IN</h1>
+            <p class="text-gray-400 text-sm">
+              Provide the below credentials to log into your account
+            </p>
+          </div>
+
+          <form class="mt-8 space-y-6" onsubmit="loginRequest(event)">
+            <div
+              id="error-message"
+              class="text-red-500 text-sm text-center hidden"
+            ></div>
+
+            <div class="space-y-4">
+              <div>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="w-full p-4 bg-matte-black border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gradient-start focus:border-transparent transition-all placeholder-gray-500"
+                  placeholder="Username"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="w-full p-4 bg-matte-black border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gradient-start focus:border-transparent transition-all placeholder-gray-500"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                class="group relative w-full gradient-bg text-white font-semibold py-4 px-4 rounded-lg hover:shadow-lg transition-all flex items-center justify-center"
+              >
+                <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                  <i class="fa-solid fa-lock text-white"></i>
+                </span>
+                Login
+                <i
+                  class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"
+                ></i>
+              </button>
+            </div>
+
+            <div class="text-center mt-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:gradient-text text-sm transition-colors"
+              >
+                Forgot your password?
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <hr class="border-gray-700 my-8" />
+
+      <!-- Footer -->
+      <footer class="py-8 bg-matte-black">
+        <div class="container mx-auto px-4">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+          >
+            <div class="text-center md:text-left">
+              <p class="text-gray-400">
+                Copyright © <span id="year"></span>
+                <span class="gradient-text font-bold">Portfolio</span>
+                All rights reserved.
+              </p>
+            </div>
+
+            <div class="flex space-x-4">
+              <a
+                href="https://www.facebook.com/Esmatullah.Farjad"
+                class="gradient-bg text-white p-3 rounded-lg hover:scale-110 transition-transform duration-300"
+                aria-label="Facebook"
+              >
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://x.com/Esmat_Farjad"
+                class="gradient-bg text-white p-3 rounded-lg hover:scale-110 transition-transform duration-300"
+                aria-label="Twitter"
+              >
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/esmatullah-hashimi-5b56401ba"
+                class="gradient-bg text-white p-3 rounded-lg hover:scale-110 transition-transform duration-300"
+                aria-label="LinkedIn"
+              >
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://github.com/Esmat-Farjad"
+                class="gradient-bg text-white p-3 rounded-lg hover:scale-110 transition-transform duration-300"
+                aria-label="GitHub"
+              >
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a
+                href="#"
+                class="gradient-bg text-white p-3 rounded-lg hover:scale-110 transition-transform duration-300"
+                aria-label="Instagram"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="gradient-bg text-white p-3 rounded-lg hover:scale-110 transition-transform duration-300"
+                aria-label="YouTube"
+              >
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
+
+            <div>
+              <h5 class="gradient-text font-bold text-lg">My Portfolio</h5>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
-    <hr>
-    <div class="footer">
-        <div style="text-align: center;">
-            <p>Copyright © <span id="year"></span> <span class="text-gradient">Portfolio</span> All rights reserved.</p>
-            <script>
-                document.getElementById('year').textContent = new Date().getFullYear();
-            </script>
-        </div>
-        <div class="media-chanels">
-            <a href="https://www.facebook.com/Esmatullah.Farjad"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://x.com/Esmat_Farjad"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.linkedin.com/in/esmatullah-hashimi-5b56401ba"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://github.com/Esmat-Farjad"><i class="fa-brands fa-github"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-        </div>
-        <div class="heading">
-            <h5 class="pre-heading">
-                My Portfolio
-            </h5>
-        </div>
-    </div>
-</div>
+
     <!-- Link SwiperJS JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- custom Link Script -->
-     <script src="assets/js/script.js"></script>
-</body>
+
+    <script>
+      // Set current year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+        // Change icon based on menu state
+        const icon = mobileMenuButton.querySelector("i");
+        if (mobileMenu.classList.contains("hidden")) {
+          icon.className = "fa-solid fa-bars";
+        } else {
+          icon.className = "fa-solid fa-times";
+        }
+      });
+
+      // Simulate loading
+      setTimeout(function () {
+        document.getElementById("spinner").style.display = "none";
+        document.getElementById("content").classList.remove("hidden");
+      }, 2000);
+
+      // Login form handler
+      function loginRequest(event) {
+        event.preventDefault();
+
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const errorMessage = document.getElementById("error-message");
+
+        // Simple validation
+        if (!username || !password) {
+          errorMessage.textContent = "Please fill in all fields";
+          errorMessage.classList.remove("hidden");
+          return;
+        }
+
+        // Show loading state
+        const submitButton = event.target.querySelector(
+          'button[type="submit"]'
+        );
+        const originalText = submitButton.innerHTML;
+        submitButton.innerHTML =
+          '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Logging in...';
+        submitButton.disabled = true;
+
+        // Simulate API call
+        setTimeout(() => {
+          // For demo purposes - always show error
+          errorMessage.textContent = "Invalid username or password";
+          errorMessage.classList.remove("hidden");
+
+          // Reset button
+          submitButton.innerHTML = originalText;
+          submitButton.disabled = false;
+
+          // In a real application, you would redirect on success:
+          // window.location.href = 'dashboard.html';
+        }, 1500);
+      }
+
+      // Add focus effects to form inputs
+      document.addEventListener("DOMContentLoaded", function () {
+        const inputs = document.querySelectorAll("input");
+        inputs.forEach((input) => {
+          input.addEventListener("focus", function () {
+            this.parentElement.classList.add("ring-2", "ring-gradient-start");
+          });
+          input.addEventListener("blur", function () {
+            this.parentElement.classList.remove(
+              "ring-2",
+              "ring-gradient-start"
+            );
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
